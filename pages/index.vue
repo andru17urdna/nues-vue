@@ -1,7 +1,7 @@
 <template>
 <div>
-  <!-- <Tutorial /> -->
   <TopHeadlines />
+  <Tutorial />
 </div>
 </template>
 
