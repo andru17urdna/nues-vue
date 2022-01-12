@@ -1,4 +1,5 @@
 <template>
+<nuxt-link :to="'/'">
   <div class="Article_container-div">
       <img :src="urlToImage" alt="">
       <h2>{{title}}</h2>
@@ -10,6 +11,7 @@
       <a :href="url">Link to article</a>
       <p>Source: {{source.name}}</p>
   </div>
+</nuxt-link>
 </template>
 
 <script>

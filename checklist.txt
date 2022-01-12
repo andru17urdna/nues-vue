@@ -1,0 +1,15 @@
+FRONTEND
+[] Individual Article Pages
+[] Search Feature
+    [] Multiple Parameters
+    [] Selectable Components
+[x] Store user information in local storage
+[] Vuex store (come up with ideas)
+SCSS
+[] Top Articles Marquee
+[]
+BACKEND
+[] More dynamic search functionality
+[] Multiple fetches with concurrency
+[]
+[]
