@@ -8,5 +8,10 @@ router.get('/', async (req, res) => {
     res.send(json);
 });
 
+router.get('/top-headlines', async (req, res) => {
+    const json = JSON.parse(await readFile(new URL('./top-headlines.json', import.meta.url)));
+    res.send(json);
+})
+
 
 export default router;

@@ -1,6 +1,7 @@
 <template>
 <div>
-  <Tutorial />
+  <!-- <Tutorial /> -->
+  <TopHeadlines />
 </div>
 </template>
 
