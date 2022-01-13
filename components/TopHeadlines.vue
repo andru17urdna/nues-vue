@@ -1,16 +1,9 @@
 <template>
-    <div>
+    <div class="Top-Headline_conatiner-div" @mouseover="clearIterate" @mouseleave="iterate">
         <h1>TOP-HEADLINES</h1>
-        <Article v-if="topHeadline !== null" :source="topHeadline.source" :author="topHeadline.source"
+        <Article  v-if="topHeadline !== null" :source="topHeadline.source" :author="topHeadline.source"
              :content="topHeadline.content" :description="topHeadline.description" :publishedAt="topHeadline.publishedAt"
              :title="topHeadline.title" :url="topHeadline.url" :urlToImage="topHeadline.urlToImage"/>
-            <!-- <p>{{topHeadline.source}}</p>
-            <p>{{topHeadline.author}}</p>
-            <p>{{topHeadline.title}}</p>
-            <p>{{topHeadline.description}}</p>
-            <p>{{topHeadline.url}}</p>
-            <p>{{topHeadline.urlToImage}}</p>
-            <p>{{topHeadline.content}}</p> -->
     </div>
 </template>
 
@@ -24,6 +17,7 @@ export default {
             headlines: [],
             topHeadline: null,
             interval: null,
+            num: 1,
         }
     },
     async created() {
@@ -37,6 +31,7 @@ export default {
             const res = await axios.get(`http://localhost:8000/api/news/top-headlines`, config);
             console.log(res.data)
             this.headlines = res.data.articles
+            this.topHeadline = this.headlines[0];
             this.iterate();
         } catch (err) {
             console.log(err);
@@ -44,17 +39,24 @@ export default {
     },
     methods: {
         iterate() {
-            let num = 0;
             this.interval = setInterval(() => {
-                this.topHeadline = this.headlines[num];
-                num++
-                if (num === this.headlines.length) num = 0;
+                this.topHeadline = this.headlines[this.num];
+                this.num++
+                if (this.num === this.headlines.length) this.num = 0;
             }, 3000)
+        },
+        clearIterate() {
+            console.log("here")
+            clearInterval(this.interval);
         }
     }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+    .Top-Headline_conatiner-div{
+        a{
+            color:red
+        }
+    }
 </style>

@@ -1,13 +1,20 @@
 <template>
   <header class="header">
     <h1 class="title">Navigation</h1>
-        <button @click="signIn()">Sign In</button>
-        <button @click="signUp()">Sign Up</button>
+
+    <div v-if="username === null">
+        <form @submit.prevent="signUp">
+            <input type="text" v-model="username" placeholder="username">
+            <input type="submit" value="Something">
+        </form>
+        <button @click="login">Login</button>
+    </div>
+    <div v-else>
+        <button @click="logout">Logout</button>
+    </div>
         <nuxt-link to="/">Home</nuxt-link>
-        <p>{{ username }}</p>
-        <p v-if="recentSearches !== null">user Searches: {{ recentSearches }}</p>
-        <p v-if="favorites !== null">user Info: {{ favorites }}</p>
-    <SignUp v-on:sign-up="signUp" />
+        <nuxt-link to="/search">Search</nuxt-link>
+
   </header>
 </template>
 
@@ -17,8 +24,6 @@ export default {
   data() {
       return {
           username: null,
-          recentSearches: null,
-          favorites: null,
       }
   },
 
@@ -26,22 +31,23 @@ export default {
 
   },
   methods: {
-      signIn() {
+      signUp(){
+          this.$emit('sign-up', this.username);
+          this.text = ""
+      },
+      login(){
+          let username = "";
           if (process.client){
               if (localStorage.getItem("USER_INFO")) {
-                  this.username = JSON.parse(localStorage.getItem("USER_INFO"));
+                  username = JSON.parse(localStorage.getItem("USER_INFO"));
+                  this.username = username;
               }
           }
-
+          this.$emit('user-login', username)
       },
-      signUp(username) {
-          console.log(this.showInput)
-          this.username = username;
-          if (process.client){
-              const userInfo = JSON.stringify(this.username);
-              localStorage.setItem("USER_INFO", userInfo)
-          }
-      },
+      logout(){
+          this.$emit('user-logout')
+      }
   }
 }
 </script>

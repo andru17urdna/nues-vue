@@ -1,7 +1,7 @@
 <!-- Please remove this file from your project -->
 <template>
   <div>
-    <h1>STUFF</h1>
+    <h1>Articles from you Favorited searches</h1>
     <Article v-for="article in articles" :key=article.title :source="article.source" :author="article.source"
              :content="article.content" :description="article.description" :publishedAt="article.publishedAt"
              :title="article.title" :url="article.url" :urlToImage="article.urlToImage"/>
@@ -26,9 +26,8 @@ export default {
     }
 
     try {
-      const res = await axios.get(`http://localhost:8000/api/news`, config);
+      const res = await axios.get(`http://localhost:8000/api/news/user-favorites`, config);
       this.articles = res.data.articles
-      // console.log(res.data.articles)
 
     } catch (err) {
       console.log(err);
