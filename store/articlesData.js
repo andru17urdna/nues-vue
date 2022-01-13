@@ -16,7 +16,6 @@ const getters = {
 const actions = {
     async fetchArticles({ commit }) {
         const res = await axios.get('http://localhost:8000/api/news/top-headlines');
-        console.log(res.data)
         commit('setArticles', res.data.articles);
     },
     async deleteArticle({ commit }, title) {

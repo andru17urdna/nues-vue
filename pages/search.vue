@@ -13,7 +13,7 @@
         <li v-for="article in allArticles" :key="article.title">
             {{ article }}
         <p @click="deleteArticle(article.title)">Delete</p>
-        </li>
+    </li>
     </ul>
   </div>
 </template>
