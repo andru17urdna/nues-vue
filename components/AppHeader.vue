@@ -47,6 +47,7 @@ export default {
       },
       logout(){
           this.$emit('user-logout')
+          this.username = null;
       }
   }
 }

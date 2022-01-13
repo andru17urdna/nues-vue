@@ -53,6 +53,11 @@ export default {
     },
     logout(){
       this.removeUserInfo();
+      this.currentUser = {
+        username: null,
+        recentSearches: null,
+        favorites: null
+      }
     }
   }
 }
