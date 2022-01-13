@@ -3,7 +3,7 @@
     <h1 class="title">Navigation</h1>
 
     <div v-if="!userLoggedIn">
-        <button @click="login">Login</button>
+        <button @click="login">Demo User Login</button>
     </div>
     <div v-else>
         <button @click="logout">Logout</button>

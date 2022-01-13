@@ -5,16 +5,16 @@ import fetch from 'node-fetch';
 const router = express.Router();
 
 router.get('/user-favorites', async (req, res) => {
-    // const paramsArr = req.query.tags.split(',')
-    // console.log(paramsArr);
+    const paramsArr = req.query.tags.split(',')
+    console.log(paramsArr);
 
-    // const fetchParamsArr = await paramsArr.map(request => request =`https://newsapi.org/v2/everything?q=${request}`)
-    // const favoritedArticles = await fetchArticlesByParams(fetchParamsArr);
-    // console.log(favoritedArticles);
+    const fetchParamsArr = await paramsArr.map(request => request =`https://newsapi.org/v2/everything?q=${request}`)
+    const favoritedArticles = await fetchArticlesByParams(fetchParamsArr);
 
-    const json = JSON.parse(await readFile(new URL('../../data-json/cnn-news.json', import.meta.url)));
-    res.send(json);
-    // res.send(favoritedArticles);
+    // const json = JSON.parse(await readFile(new URL('../../data-json/cnn-news.json', import.meta.url)));
+    // res.send(json);
+
+    res.send(favoritedArticles);
 });
 
 
@@ -34,5 +34,10 @@ router.get('/top-headlines', async (req, res) => {
     res.send(json);
 })
 
+
+router.get('/fox-news', async (req, res) => {
+    const json = JSON.parse(await readFile(new URL('../../data-json/fox.json', import.meta.url)));
+    res.send(json);
+})
 
 export default router;

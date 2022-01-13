@@ -90,5 +90,3 @@ sw.*
 *.swp
 
 # Additional files
-cnn-news.json
-top-headlines.json

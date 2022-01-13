@@ -1,0 +1,136 @@
+{
+    "status": "ok",
+    "totalResults": 10,
+    "articles": [
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Fox News",
+            "title": "Liberal pundits melt down after Sinema doubles down on filibuster support: 'Resign or be removed from office'",
+            "description": "Jennifer Rubin, Keith Olbermann and Joy Reid were among the liberal pundits who expressed disgust Thursday after Sen. Kyrsten Sinema said she will not vote to weaken the Senate's 60-vote filibuster threshold.",
+            "url": "https://www.foxnews.com/media/liberal-pundits-lose-their-minds-over-sinema",
+            "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2022/01/Rubin-Sinema-Olbermann.jpg",
+            "publishedAt": "2022-01-13T23:22:22.3458312Z",
+            "content": "Liberal pundits melted down Thursday after Sen. Kyrsten Sinema, D-Ariz., said she will not vote to weaken the Senate's 60-vote filibuster threshold, bucking her party leaders yet again and dealing a … [+2791 chars]"
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Fox News",
+            "title": "Biden White House reeling after week of defeats, setbacks, and policy flops",
+            "description": "President Joe Biden is on track for what could be the worst week of his presidency as his poll numbers continue to crater at the same time his legislative agenda stalls and court battles fail.",
+            "url": "https://www.foxnews.com/politics/biden-white-house-policy-flops-defeats",
+            "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2021/09/Joe-Biden.jpg",
+            "publishedAt": "2022-01-13T23:07:17.4424067Z",
+            "content": "President Joe Biden is on track for what could be one of the worst weeks of his presidency as his poll numbers continue to crater at the same time his legislative agenda stalls and court battles fail… [+4810 chars]"
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Fox News",
+            "title": "Pentagon 'aware' of Iranian website's Trump 'assassination' video: Spokesman",
+            "description": "John Kirby addresses controversial video on Ayatollah's site, US response to the Russian military buildup at the Ukraine border on 'The Story.'",
+            "url": "https://video.foxnews.com/v/6291660123001/",
+            "urlToImage": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/694940094001/ac677046-b42f-44d8-bf21-4ae9bc0a5ac8/ada1eeb5-dfbc-4031-ae1a-4f5296b88c53/1280x720/match/image.jpg",
+            "publishedAt": "2022-01-13T22:07:20.9905989Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Fox News",
+            "title": "Supreme Court vaccine mandate ruling a ‘big loss’ for Biden: Barrasso",
+            "description": "Sen. John Barrasso urges the Biden administration to focus on the concerns of the American people on ‘The Story.’",
+            "url": "https://video.foxnews.com/v/6291657824001/",
+            "urlToImage": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/694940094001/2576c057-9fd0-4c8d-bed1-004d0867e4d3/8dceaa87-c618-40fa-8bf4-952936a08c3a/1280x720/match/image.jpg",
+            "publishedAt": "2022-01-13T22:07:19.9908471Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Fox News",
+            "title": "Mike Pompeo: White House living in a 'fantasy world' on Iran nuke deal",
+            "description": "Former secretary of state discusses the Biden administration's Iran strategy on 'The Story.'",
+            "url": "https://video.foxnews.com/v/6291660031001/",
+            "urlToImage": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/694940094001/ec0ad51d-c9e4-4d6d-a50b-cad93081333f/045d7ba2-d425-4090-9700-2fcf3bccafdd/1280x720/match/image.jpg",
+            "publishedAt": "2022-01-13T21:52:24.420627Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Fox News",
+            "title": "Biden has an impressive list of losses in federal court: Turley",
+            "description": "Fox News contributors Jonathan Turley, Juan Williams and Dan Henninger react to the Supreme Court’s ruling on Biden’s vaccine mandate.",
+            "url": "https://video.foxnews.com/v/6291657921001/",
+            "urlToImage": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/694940094001/ea019f17-e251-4878-9ce1-3b5d7c01e3f6/6614f8f8-efb0-484f-a0fe-a4fcbaa6b335/1280x720/match/image.jpg",
+            "publishedAt": "2022-01-13T21:52:23.1553164Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Fox News",
+            "title": "'The Young and the Restless' actor says he was fired for 'inadvertently' breaching COVID-19 protocols",
+            "description": "Actor Richard Burgi has been fired from CBS' “The Young and the Restless” for breaching COVID-19 protocols.",
+            "url": "https://www.foxnews.com/entertainment/young-restless-actor-fired-breaching-covid-19-protocols",
+            "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2022/01/richard-burgi.jpg",
+            "publishedAt": "2022-01-13T21:52:22.3430189Z",
+            "content": "Actor Richard Burgi says he was fired from CBS' \"The Young and the Restless\" for breaching COVID-19 protocols.\r\nThe actor took to his Instagram Story on Tuesday to reveal that he \"naively and inadver… [+1568 chars]"
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Fox News",
+            "title": "Supreme Court blocks Biden vaccine mandates for large employers",
+            "description": "‘Fox News @ Night’ anchor Shannon Bream breaks down where the justices ruled on the split decision.",
+            "url": "https://video.foxnews.com/v/6291658605001/",
+            "urlToImage": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/694940094001/630737fb-55fb-4ef8-9c63-c623446311da/ec3d7e3c-99d8-41f1-9352-e99edf84dfac/1280x720/match/image.jpg",
+            "publishedAt": "2022-01-13T20:52:18.6783127Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Fox News",
+            "title": "Lia Thomas controversy leads women's sports advocates to speak out against NCAA: 'It's about fairness'",
+            "description": "Women’s sports advocates are speaking out against the National Collegiate Athletic Association (NCAA) and its rules on transgender student athlete participation, but the organization has so far remained silent while transgender swimmer Lia Thomas shatters rec…",
+            "url": "https://www.foxnews.com/politics/womens-sports-advocates-ncaa-lia-thomas-fairness",
+            "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2022/01/GettyImages-1363656660.jpg",
+            "publishedAt": "2022-01-13T19:52:27.8216717Z",
+            "content": "Women's sports advocates are speaking out against the National Collegiate Athletic Association (NCAA) and its rules on transgender student athlete participation ahead of the NCAA Championships this M… [+9149 chars]"
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Fox News",
+            "title": "Supreme Court blocks Biden OSHA vaccine mandate, allows rule for health care workers",
+            "description": "The Supreme Court on Thursday issued mixed rulings in a pair of cases challenging Biden administration vaccine mandates.",
+            "url": "https://www.foxbusiness.com/politics/supreme-court-biden-vaccine-mandates-osha-health-care-workers",
+            "urlToImage": "https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2022/01/0/0/Supreme-Court-Biden-Vaccine-Mandate.jpg?ve=1&tl=1",
+            "publishedAt": "2022-01-13T19:52:21.8075438Z",
+            "content": "The Supreme Court on Thursday issued mixed rulings in a pair of cases challenging Biden administration vaccine mandates, allowing the requirement for certain health care workers to go into effect whi… [+358 chars]"
+        }
+    ]
+}

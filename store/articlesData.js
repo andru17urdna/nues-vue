@@ -6,33 +6,31 @@ const state = {
 }
 
 
-//getters
 const getters = {
     mainArticles: (state) => state.articles
 }
 
-//actions
-  //asyncronous
+
 const actions = {
     async fetchDefaultArticles({ commit }) {
-        const res = await axios.get('http://localhost:8000/api/news/top-headlines');
+        const res = await axios.get('http://localhost:8000/api/news/fox-news');
         commit('setArticles', res.data.articles);
     },
     async fetchUserArticles( { commit }, arr ) {
-        // const res = await axios.get(`http://localhost:8000/api/news/user-favorites/?tags=${arr.join(",")}`);
-        const res = await axios.get(`http://localhost:8000/api/news/user-favorites`);
-        console.log(res.data);
-        commit('setArticles', res.data.articles);
-        // commit('setArticles', res.data);
+        const res = await axios.get(`http://localhost:8000/api/news/user-favorites/?tags=${arr.join(",")}`);
+
+        // const res = await axios.get(`http://localhost:8000/api/news/user-favorites`);
+        // console.log(res.data);
+        // commit('setArticles', res.data.articles);
+
+        commit('setArticles', res.data);
     },
     async deleteArticle({ commit }, title) {
-        // await axios.delete("adddresss");
         commit('removeArticle', title)
     }
 }
 
-//mutations
-  //syncrounous
+
 const mutations ={
     setArticles: (state, articles) => (state.articles = articles),
     removeArticle: (state, title) => state.articles = state.articles.filter(article => article.title !== title)
