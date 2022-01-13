@@ -27,11 +27,14 @@ export default {
   },
   methods: {
     ...mapActions('userInfo', ['fetchUserInfo', 'removeUserInfo']),
-    signIn() {
-      this.fetchUserInfo();
+    ...mapActions('articlesData',['fetchDefaultArticles','fetchUserArticles']),
+    async signIn() {
+      await this.fetchUserInfo();
+      this.fetchUserArticles(this.userInfo.favorited);
     },
     logout(){
       this.removeUserInfo();
+      this.fetchDefaultArticles();
     }
   }
 }

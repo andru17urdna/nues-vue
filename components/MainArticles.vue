@@ -1,9 +1,10 @@
 <template>
   <div>
     <h1>Todays Articles:</h1>
-    <Article v-for="article in defaultArticles" :key=article.title :source="article.source" :author="article.source"
+    <p v-if="this.userInfo.session">When logged in a request is made with a users favorited search strings</p>
+    <Article v-for="article in mainArticles" :key=article.title :source="article.source" :author="article.source"
              :content="article.content" :description="article.description" :publishedAt="article.publishedAt"
-             :title="article.title" :url="article.url" :urlToImage="article.urlToImage" :delete="false"/>
+             :title="article.title" :url="article.url" :urlToImage="article.urlToImage" :location="'MainArticles'"/>
   </div>
 </template>
 
@@ -11,10 +12,10 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  name: 'NuxtTutorial',
+  name: 'MainArticles',
   computed: {
-    ...mapGetters('articlesData',['defaultArticles']),
-
+    ...mapGetters('articlesData',['mainArticles']),
+    ...mapGetters('userInfo', ['userInfo'])
   },
   data() {
     return {
@@ -22,10 +23,14 @@ export default {
     }
   },
   async created() {
-    this.fetchDefaultArticles();
+    if (!this.userInfo.session) {
+      this.fetchDefaultArticles();
+    } else {
+      this.fetchUserArticles();
+    }
   },
   methods:{
-    ...mapActions('articlesData',['fetchDefaultArticles', 'deleteArticle']),
+    ...mapActions('articlesData',['fetchDefaultArticles', 'fetchUserArticles', 'deleteArticle']),
   }
 }
 </script>

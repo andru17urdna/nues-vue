@@ -1,7 +1,7 @@
 <template>
   <div>
       <h1>SEARCH</h1>
-      <p>{{ searchString }}</p>
+      <p> When a user is logged in their most recent searches are saved for ease of use</p>
       <ul>
           <li @click="previousSearch(prevSearch)" v-for="prevSearch in userInfo.recent_searches" :key="prevSearch">{{prevSearch}}</li>
       </ul>
@@ -11,7 +11,7 @@
 
     <Article v-for="article in searchResults" :key=article.title :source="article.source" :author="article.source"
              :content="article.content" :description="article.description" :publishedAt="article.publishedAt"
-             :title="article.title" :url="article.url" :urlToImage="article.urlToImage" :delete="false"/>
+             :title="article.title" :url="article.url" :urlToImage="article.urlToImage" :location="'Search'"/>
   </div>
 </template>
 
@@ -43,6 +43,7 @@ export default {
         },
         async previousSearch(string){
             try {
+                this.searchString = string
                 const res = await axios.get(`http://localhost:8000/api/search/?tags=${string}`);
                 this.searchResults = res.data.articles
             } catch (err) {

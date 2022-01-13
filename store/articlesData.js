@@ -8,7 +8,7 @@ const state = {
 
 //getters
 const getters = {
-    defaultArticles: (state) => state.articles
+    mainArticles: (state) => state.articles
 }
 
 //actions
@@ -17,6 +17,13 @@ const actions = {
     async fetchDefaultArticles({ commit }) {
         const res = await axios.get('http://localhost:8000/api/news/top-headlines');
         commit('setArticles', res.data.articles);
+    },
+    async fetchUserArticles( { commit }, arr ) {
+        // const res = await axios.get(`http://localhost:8000/api/news/user-favorites/?tags=${arr.join(",")}`);
+        const res = await axios.get(`http://localhost:8000/api/news/user-favorites`);
+        console.log(res.data);
+        commit('setArticles', res.data.articles);
+        // commit('setArticles', res.data);
     },
     async deleteArticle({ commit }, title) {
         // await axios.delete("adddresss");

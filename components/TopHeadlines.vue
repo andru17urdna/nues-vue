@@ -3,7 +3,7 @@
         <h1>TOP-HEADLINES</h1>
         <Article  v-if="topHeadline !== null" :source="topHeadline.source" :author="topHeadline.source"
              :content="topHeadline.content" :description="topHeadline.description" :publishedAt="topHeadline.publishedAt"
-             :title="topHeadline.title" :url="topHeadline.url" :urlToImage="topHeadline.urlToImage" :delete="false"/>
+             :title="topHeadline.title" :url="topHeadline.url" :urlToImage="topHeadline.urlToImage" :location="'TopHeadlines'"/>
     </div>
 </template>
 

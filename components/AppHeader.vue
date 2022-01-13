@@ -2,7 +2,7 @@
   <header class="header">
     <h1 class="title">Navigation</h1>
 
-    <div v-if="username === null">
+    <div v-if="!userLoggedIn">
         <button @click="login">Login</button>
     </div>
     <div v-else>
@@ -19,19 +19,20 @@ export default {
   name: 'AppHeader',
   data() {
       return {
-          username: null,
+          userLoggedIn: false,
       }
   },
-
   created() {
 
   },
   methods: {
       login(){
           this.$emit('user-login')
+          this.userLoggedIn = true;
       },
       logout(){
-          this.$emit('user-logout')
+          this.$emit('user-logout');
+          this.userLoggedIn = false;
       }
   }
 }
