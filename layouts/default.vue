@@ -1,10 +1,10 @@
 <template>
   <div>
-    <p>current User: {{ currentUser.username }}</p>
-    <p>recent searches: {{ currentUser.recentSearches }}</p>
-    <p>current favorites: {{ currentUser.favorites }}</p>
-    <AppHeader v-on:sign-up="signUp"
-               v-on:user-login="signIn"
+    <p>current User: {{ userInfo.username }}</p>
+    <p>recent searches: {{ userInfo.recent_searches }}</p>
+    <p>current favorites: {{ userInfo.favorited }}</p>
+    <p>session: {{ userInfo.session }}</p>
+    <AppHeader v-on:user-login="signIn"
                v-on:user-logout="logout"/>
     <Nuxt />
   </div>
@@ -16,11 +16,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data(){
     return {
-      currentUser: {
-            username: null,
-            recentSearches: null,
-            favorites: null
-          }
+
     }
   },
   computed: {
@@ -30,34 +26,12 @@ export default {
 
   },
   methods: {
-    ...mapActions('userInfo', ['setUserInfo', 'removeUserInfo']),
-
-
-    signUp(username) {
-      this.currentUser.username = username
-      if (process.client){
-        const userInfo = JSON.stringify(this.currentUser);
-        localStorage.setItem("USER_INFO", userInfo);
-        this.setUserInfo(this.currentUser);
-      }
-    },
+    ...mapActions('userInfo', ['fetchUserInfo', 'removeUserInfo']),
     signIn() {
-      if (process.client){
-          if (localStorage.getItem("USER_INFO")) {
-              this.currentUser = JSON.parse(localStorage.getItem("USER_INFO"));
-              this.setUserInfo(this.currentUser)
-          } else {
-            return;
-          }
-      }
+      this.fetchUserInfo();
     },
     logout(){
       this.removeUserInfo();
-      this.currentUser = {
-        username: null,
-        recentSearches: null,
-        favorites: null
-      }
     }
   }
 }

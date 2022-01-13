@@ -1,7 +1,7 @@
 <template>
 <div>
-  <!-- <TopHeadlines /> -->
-  <UserFavArticles />
+  <TopHeadlines />
+  <MainArticles />
 </div>
 </template>
 

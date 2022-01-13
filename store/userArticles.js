@@ -14,10 +14,16 @@ const actions = {
             'http://localhost:8000/api/news/user-favorites');
         commit('setUserFavorite', res.data.articles);
     },
+    async deleteUserArticle({ commit }, title) {
+        // await axios.delete("adddresss");
+        commit('removeUserArticle', title)
+    }
 }
 
 const mutations = {
-    setUserFavorite: (state, userFavorite) => (state.userFavorite = userFavorite)
+    setUserFavorite: (state, userFavorite) => (state.userFavorite = userFavorite),
+    removeUserArticle: (state, title) => state.userFavorite = state.userFavorite.filter(article => article.title !== title)
+
 }
 
 export default {

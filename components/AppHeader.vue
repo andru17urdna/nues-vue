@@ -3,10 +3,6 @@
     <h1 class="title">Navigation</h1>
 
     <div v-if="username === null">
-        <form @submit.prevent="signUp">
-            <input type="text" v-model="username" placeholder="username">
-            <input type="submit" value="Something">
-        </form>
         <button @click="login">Login</button>
     </div>
     <div v-else>
@@ -31,23 +27,11 @@ export default {
 
   },
   methods: {
-      signUp(){
-          this.$emit('sign-up', this.username);
-          this.text = ""
-      },
       login(){
-          let username = "";
-          if (process.client){
-              if (localStorage.getItem("USER_INFO")) {
-                  username = JSON.parse(localStorage.getItem("USER_INFO"));
-                  this.username = username;
-              }
-          }
-          this.$emit('user-login', username)
+          this.$emit('user-login')
       },
       logout(){
           this.$emit('user-logout')
-          this.username = null;
       }
   }
 }

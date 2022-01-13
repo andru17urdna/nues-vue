@@ -8,13 +8,13 @@ const state = {
 
 //getters
 const getters = {
-    allArticles: (state) => state.articles
+    defaultArticles: (state) => state.articles
 }
 
 //actions
   //asyncronous
 const actions = {
-    async fetchArticles({ commit }) {
+    async fetchDefaultArticles({ commit }) {
         const res = await axios.get('http://localhost:8000/api/news/top-headlines');
         commit('setArticles', res.data.articles);
     },

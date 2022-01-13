@@ -3,7 +3,7 @@
         <h1>TOP-HEADLINES</h1>
         <Article  v-if="topHeadline !== null" :source="topHeadline.source" :author="topHeadline.source"
              :content="topHeadline.content" :description="topHeadline.description" :publishedAt="topHeadline.publishedAt"
-             :title="topHeadline.title" :url="topHeadline.url" :urlToImage="topHeadline.urlToImage"/>
+             :title="topHeadline.title" :url="topHeadline.url" :urlToImage="topHeadline.urlToImage" :delete="false"/>
     </div>
 </template>
 
@@ -29,7 +29,6 @@ export default {
 
         try {
             const res = await axios.get(`http://localhost:8000/api/news/top-headlines`, config);
-            console.log(res.data)
             this.headlines = res.data.articles
             this.topHeadline = this.headlines[0];
             this.iterate();
@@ -46,7 +45,6 @@ export default {
             }, 3000)
         },
         clearIterate() {
-            console.log("here")
             clearInterval(this.interval);
         }
     }

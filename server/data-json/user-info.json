@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "username": "Demo",
+  "session": null,
+  "recent_searches": [
+    "bitcoin",
+    "tesla",
+    "dogs"
+  ],
+  "favorited": [
+    "animals"
+  ]
+}

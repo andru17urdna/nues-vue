@@ -2,61 +2,57 @@
   <div>
       <h1>SEARCH</h1>
       <p>{{ searchString }}</p>
+      <ul>
+          <li @click="previousSearch(prevSearch)" v-for="prevSearch in userInfo.recent_searches" :key="prevSearch">{{prevSearch}}</li>
+      </ul>
     <form @submit.prevent="searchNews">
         <input type="text" v-model="searchString" placeholder="SEARCH">
     </form>
 
     <Article v-for="article in searchResults" :key=article.title :source="article.source" :author="article.source"
              :content="article.content" :description="article.description" :publishedAt="article.publishedAt"
-             :title="article.title" :url="article.url" :urlToImage="article.urlToImage"/>
-    <ul>
-        <li v-for="article in allArticles" :key="article.title">
-            {{ article }}
-        <p @click="deleteArticle(article.title)">Delete</p>
-    </li>
-    </ul>
+             :title="article.title" :url="article.url" :urlToImage="article.urlToImage" :delete="false"/>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from "vuex";
 import axios from 'axios';
+import { mapActions, mapGetters } from "vuex";
 
 export default {
     name: 'Search',
-    computed: {
-        ...mapGetters('articlesData',['allArticles']),
-
-    },
     data() {
         return {
             searchString: '',
             searchResults: []
         }
     },
+    computed: {
+        ...mapGetters('userInfo', ['userInfo'])
+    },
     methods: {
-        ...mapActions('articlesData',['fetchArticles', 'deleteArticle']),
+        ...mapActions('userInfo', ['updateUserSearches']),
         async searchNews() {
-            console.log(this.searchString)
-
-            const config = {
-            headers: {
-                'Accept': 'applications/json'
+            try {
+                const res = await axios.get(`http://localhost:8000/api/search/?tags=${this.searchString}`);
+                this.searchResults = res.data.articles
+                this.updateUserSearches(this.searchString)
+            } catch (err) {
+                console.log(err);
             }
-        }
-
-        try {
-            const res = await axios.get(`http://localhost:8000/api/search/?tags=${this.searchString}`, config);
-            // console.log(res.data)
-            this.searchResults = res.data.articles
-            console.log(this.searchResults);
-        } catch (err) {
-            console.log(err);
-        }
+        },
+        async previousSearch(string){
+            try {
+                const res = await axios.get(`http://localhost:8000/api/search/?tags=${string}`);
+                this.searchResults = res.data.articles
+            } catch (err) {
+                console.log(err);
+            }
         },
     },
+
     created() {
-        this.fetchArticles();
+
     }
 }
 </script>

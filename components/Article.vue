@@ -10,14 +10,20 @@
       <p>Title: {{title}}</p>
       <a :href="url">Link to article</a>
       <p>Source: {{source.name}}</p>
+      <button v-if="this.delete" @click="deleteUserArticle(title)">Delete</button>
   </div>
 </nuxt-link>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
     name: 'Article',
-    props: ['source', 'author', 'content', 'description', 'publishedAt', 'title', 'url', 'urlToImage', 'theArticle'],
+    props: ['source', 'author', 'content', 'description', 'publishedAt', 'title', 'url', 'urlToImage', 'theArticle', 'delete'],
+    methods:{
+    ...mapActions('userArticles', ['deleteUserArticle'])
+  }
 }
 </script>
 
