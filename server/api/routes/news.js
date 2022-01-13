@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.get('/user-favorites', async (req, res) => {
     const paramsArr = req.query.tags.split(',')
-    console.log(paramsArr);
 
     const fetchParamsArr = await paramsArr.map(request => request =`https://newsapi.org/v2/everything?q=${request}`)
     const favoritedArticles = await fetchArticlesByParams(fetchParamsArr);

@@ -9,22 +9,31 @@ Quick notes
 
 ## Table of Contents
 
-#### [Components](#running-server-and-tests)
-* #### [AppHeader.vue]
-* #### [Article.vue]
-* #### [MainArticles.vue]
-* #### [TopHeadlines.vue]
-#### [Layouts]
-* #### [default.vue]
-#### [Pages]
-* #### [search.vue]
+#### Components
+* #### AppHeader.vue
+* #### Article.vue
+* #### MainArticles.vue
+* #### TopHeadlines.vue
+#### Layouts
+* #### default.vue
+#### Pages
+* #### search.vue
 #### Server
-* #### [Concurrency News fetch]
-
-#### [API & Routes](#api-requirements)
+* #### Concurrency News fetch
 
 ----
 ----
+### List of Tech for this project
+* Nuxt
+* Vuex
+* SCSS
+* axios
+* nodemon
+* fetch
+* express
+* dotenv
+
+
 
 Install dependencies:
 
@@ -52,6 +61,7 @@ ____
 * Better division of components
 * improved user features
 * add a way to save favorite searches
+* add seo
 ____
 
 
