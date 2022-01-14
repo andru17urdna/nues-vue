@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const state = {
+const state = () => ({
     userInfo: {}
-}
+})
 
 const getters = {
     userInfo: (state) => state.userInfo

@@ -1,9 +1,9 @@
 //state
 import axios from 'axios';
 
-const state = {
+const state = () => ({
     articles: []
-}
+})
 
 
 const getters = {

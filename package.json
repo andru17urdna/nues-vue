@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "runall": "concurrently --names 'Backend,Frontend' 'yarn server' 'yarn dev'",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "concurrently": "^7.0.0",
     "core-js": "^3.19.3",
     "cors": "^2.8.5",
     "dotenv": "^11.0.0",
