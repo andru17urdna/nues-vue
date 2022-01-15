@@ -10,5 +10,14 @@
   "favorited": [
     "animals",
     "investing"
-  ]
+  ],
+  "settings": {
+    "display": {
+      "columns": 2,
+      "mode": "light"
+    },
+    "blockedSources": [
+      "cnn"
+    ]
+  }
 }
