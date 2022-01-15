@@ -11,11 +11,14 @@
     </div>
         <nuxt-link to="/">Home</nuxt-link>
         <nuxt-link to="/search">Search</nuxt-link>
+        <nuxt-link v-if="userLoggedIn" :to="'user/your-profile'">Your Profile</nuxt-link>
+
 
   </header>
 </template>
 
 <script>
+
 export default {
   name: 'AppHeader',
   data() {

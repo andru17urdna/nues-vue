@@ -34,21 +34,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-  .MainArticle_container-div{
-    background-color: orange;
-    display: grid;
-    column-gap: 1rem;
-    row-gap: 1rem;
-    grid-template-rows: 3rem auto;
-
-    .MainArticle_header-h2{
-        color: white;
-        grid-column: 1/3;
-        padding-left: 2rem;
-    }
-
-}
-
-</style>
