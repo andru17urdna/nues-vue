@@ -1,5 +1,6 @@
 <template>
   <header class="header">
+      <DevInfoDisplay />
     <h1 class="title">Navigation</h1>
 
     <div v-if="!userLoggedIn">
