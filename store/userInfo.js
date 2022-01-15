@@ -1,11 +1,26 @@
 import axios from 'axios';
+const defaultUserSettings = {
+  id: null,
+  username: null,
+  session: null,
+  recent_searches: null,
+  favorited: null,
+  settings: {
+    display: {
+      columns: 2,
+      mode: "light"
+    },
+    blockedSources: null
+  }
+}
 
 const state = () => ({
-    userInfo: {}
+    userInfo: defaultUserSettings,
 })
 
 const getters = {
-    userInfo: (state) => state.userInfo
+    userInfo: (state) => state.userInfo,
+    userSettings: (state) => state.userInfo.settings.display,
 }
 
 const actions = {
@@ -16,7 +31,7 @@ const actions = {
             commit('setUser', res.data)
     },
     async removeUserInfo({ commit }) {
-        commit('setUser', {})
+        commit('setUser', defaultUserSettings)
     },
     async updateUserSearches({commit}, data) {
         commit('updateUserSearches', data)

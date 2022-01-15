@@ -1,5 +1,5 @@
 <template>
-  <div class="MainArticle_container-div">
+  <div :style="{gridTemplateColumns: `repeat(${this.userSettings.columns}, 1fr)`}" class="MainArticle_container-div">
     <h2 class="MainArticle_header-h2">Todays Articles:</h2>
     <p v-if="this.userInfo.session">When logged in a request is made with a users favorited search strings</p>
     <Article v-for="article in mainArticles" :key=article.title :source="article.source" :author="article.source"
@@ -15,7 +15,7 @@ export default {
   name: 'MainArticles',
   computed: {
     ...mapGetters('articlesData',['mainArticles']),
-    ...mapGetters('userInfo', ['userInfo'])
+    ...mapGetters('userInfo', ['userInfo', 'userSettings'])
   },
   data() {
     return {
@@ -35,6 +35,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .MainArticle_container-div{
+    background-color: orange;
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    grid-template-rows: 3rem auto;
+
+    .MainArticle_header-h2{
+        color: white;
+        grid-column: 1/3;
+        padding-left: 2rem;
+    }
+
+}
 
 </style>

@@ -13,7 +13,7 @@
   ],
   "settings": {
     "display": {
-      "columns": 2,
+      "columns": 3,
       "mode": "light"
     },
     "blockedSources": [
