@@ -40,7 +40,6 @@ export default {
   created() {
     this.prevSettings = this.userSettings;
     this.columns = this.userSettings.columns;
-    // this.columns = 4;
     this.mode = this.userSettings.mode;
   },
   methods: {

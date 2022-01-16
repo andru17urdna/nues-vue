@@ -32,6 +32,7 @@ export default {
     },
     methods: {
         ...mapActions('userInfo', ['updateUserSearches']),
+        ...mapActions('devMessage', ['fetchMessage']),
         async searchNews() {
             try {
                 const res = await axios.get(`http://localhost:8000/api/search/?tags=${this.searchString}`);
@@ -53,7 +54,7 @@ export default {
     },
 
     created() {
-
+        this.fetchMessage('search')
     }
 }
 </script>

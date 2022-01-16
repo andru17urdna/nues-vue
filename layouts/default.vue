@@ -12,10 +12,8 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import DevInfoDisplay from '~/components/Modal/DevInfoDisplay.vue';
 
 export default {
-  components: { DevInfoDisplay },
   data(){
     return {
       displayModal: false,
@@ -25,7 +23,7 @@ export default {
     ...mapGetters('userInfo', ['userInfo'])
   },
   created(){
-
+    console.log(this.userInfo)
   },
   methods: {
     ...mapActions('userInfo', ['fetchUserInfo', 'removeUserInfo']),

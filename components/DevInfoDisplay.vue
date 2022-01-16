@@ -1,22 +1,31 @@
 <template>
   <div class="DevInfoDisplay_container-div">
     <h3>Dev info display</h3>
-    <p>This modal is only temporary as way to show data changing in state on page as well as interaction on each page. But also for me to give you sarcastic remarks the entire time you are here!! :D</p>
-    <p>{{currentUser}}</p>
+    <p>{{ currentUser }}</p>
+    <p>{{ getMessage }}</p>
   </div>
 </template>
 
 <script>
-// import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "DevInfoDisplay",
   props: ['currentUser'],
   data() {
+    return {
 
+    }
   },
   computed: {
-    // ...mapGetters('userInfo', ['userInfo'])
+    ...mapGetters('devMessage', ['getMessage'])
+  },
+  created() {
+    this.fetchMessage('homePage');
+    console.log(this.currentUser)
+  },
+  methods: {
+    ...mapActions('devMessage', ['fetchMessage'])
   }
 }
 </script>
