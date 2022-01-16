@@ -4,8 +4,11 @@
     <p>recent searches: {{ userInfo.recent_searches }}</p>
     <p>current favorites: {{ userInfo.favorited }}</p>
     <p>session: {{ userInfo.session }}</p>
+    <Modal v-if="displayModal"
+               v-on:remove-modal="closeModal" />
     <AppHeader v-on:user-login="signIn"
-               v-on:user-logout="logout"/>
+               v-on:user-logout="logout"
+               v-on:show-settings="showModal"/>
     <Nuxt />
   </div>
 </template>
@@ -16,7 +19,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data(){
     return {
-
+      displayModal: false,
     }
   },
   computed: {
@@ -35,6 +38,12 @@ export default {
     logout(){
       this.removeUserInfo();
       this.fetchDefaultArticles();
+    },
+    showModal() {
+      this.displayModal = true;
+    },
+    closeModal() {
+      this.displayModal = false;
     }
   }
 }

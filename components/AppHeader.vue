@@ -7,6 +7,7 @@
         <button @click="login">Demo User Login</button>
     </div>
     <div v-else>
+        <button @click="showSettingsModal">Settings</button>
         <button @click="logout">Logout</button>
     </div>
         <nuxt-link to="/">Home</nuxt-link>
@@ -37,6 +38,9 @@ export default {
       logout(){
           this.$emit('user-logout');
           this.userLoggedIn = false;
+      },
+      showSettingsModal(){
+          this.$emit('show-settings')
       }
   }
 }
