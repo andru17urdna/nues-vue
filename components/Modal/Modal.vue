@@ -7,9 +7,11 @@
       <p>{{ userSettings.columns }}</p>
       <p>{{ userSettings.mode }}</p>
       <p>Prev Settings: {{ prevSettings }}</p>
+      <p>Columns:{{columns}}</p>
+      <p>Mode:{{mode}}</p>
       <p>modal</p>
-      <button>Accept</button>
-      <button>Cancel</button>
+      <button @click="acceptChanges">Accept</button>
+      <button @click="cancelChanges">Cancel</button>
     </div>
   </div>
 </template>
@@ -21,24 +23,35 @@ export default {
   name: "Modal",
   data() {
     return {
-      prevSettings: null
+      prevSettings: null,
+      columns: null,
+      mode: null
     }
   },
   computed:{
     ...mapGetters('userInfo', ['userSettings'])
   },
   created() {
-    this.prevSettings = this.userSettings
+    this.prevSettings = this.userSettings;
+    this.columns = this.userSettings.columns;
+    // this.columns = 4;
+    this.mode = this.userSettings.mode;
   },
   methods: {
+    ...mapActions('userInfo', ['updateUserSettings']),
     closeModal() {
       this.$emit('remove-modal')
     },
     cancelChanges() {
-
+      console.log(this.prevSettings)
+      this.updateUserSettings(this.prevSettings);
     },
     acceptChanges() {
-
+      const data = {
+        columns: this.columns,
+        mode: this.mode
+      }
+      this.updateUserSettings(data)
     },
   }
 }

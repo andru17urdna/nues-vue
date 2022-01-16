@@ -35,6 +35,9 @@ const actions = {
     },
     async updateUserSearches({commit}, data) {
         commit('updateUserSearches', data)
+    },
+    async updateUserSettings({commit}, data) {
+        commit('updateUserSettings', data)
     }
 }
 
@@ -44,6 +47,10 @@ const mutations = {
         let currentState = state.userInfo.recent_searches
         currentState.unshift(data);
          return state.userInfo.recent_searches = currentState.splice(0,3)
+    },
+    updateUserSettings: (state, data) => {
+        return state.userInfo.settings.display = data;
+
     }
 }
 
