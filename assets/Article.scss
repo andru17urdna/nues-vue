@@ -50,6 +50,13 @@
             grid-column:1 /span end ;
             grid-row: 3;
         }
+
+        .Article_delete-btn{
+            grid-column:1;
+            grid-row: 1;
+            height: 20%;
+
+        }
     }
 
 }

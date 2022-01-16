@@ -9,7 +9,7 @@
       <p class="Article_description-p" v-if="descriptionShow">Description: {{description}}</p>
       <p v-if="publishedShow">PublishedAt: {{publishedAt}}</p>
       <a v-if="linkShow" :href="url">Link to article</a>
-      <button v-if="this.deleteable" @click="deleteArticle(title)">Delete</button>
+      <button class ="Article_delete-btn" v-if="this.deleteable" @click="deleteArticle(title)">Delete</button>
   </div>
 </nuxt-link>
 </template>
