@@ -1,18 +1,24 @@
 <template>
 
-  <div class="Modal_background-div" @click="closeModal">
+  <div class="Modal_background-div" @click="[closeModal(), cancelChanges()]">
 
     <div @click.stop class="Modal_container-div">
       <h3>Home Page Settings</h3>
-      <p>{{ userSettings.columns }}</p>
-      <p>{{ userSettings.mode }}</p>
-      <p>Prev Settings: {{ prevSettings }}</p>
-      <p>Columns:{{columns}}</p>
-      <p>Mode:{{mode}}</p>
-      <p>modal</p>
-      <button @click="acceptChanges">Accept</button>
-      <button @click="cancelChanges">Cancel</button>
+      <p>Number of Columns:</p>
+      <select @change="acceptChanges(false)" v-model="columns">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      <p>Light Mode or Dark Mode:</p>
+      <select @change="acceptChanges(false)" v-model="mode">
+        <option :value="'light'">Light</option>
+        <!-- <option>Dark</option> -->
+      </select>
+      <button @click="acceptChanges(true)">Accept</button>
+      <button @click="cancelChanges(true)">Cancel</button>
     </div>
+
   </div>
 </template>
 
@@ -43,15 +49,16 @@ export default {
       this.$emit('remove-modal')
     },
     cancelChanges() {
-      console.log(this.prevSettings)
       this.updateUserSettings(this.prevSettings);
+      this.closeModal()
     },
-    acceptChanges() {
+    acceptChanges(boolean) {
       const data = {
         columns: this.columns,
         mode: this.mode
       }
       this.updateUserSettings(data)
+      if (boolean) this.closeModal();
     },
   }
 }

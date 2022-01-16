@@ -50,7 +50,6 @@ const mutations = {
     },
     updateUserSettings: (state, data) => {
         return state.userInfo.settings.display = data;
-
     }
 }
 
