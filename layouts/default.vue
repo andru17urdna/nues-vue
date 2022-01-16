@@ -1,9 +1,6 @@
 <template>
   <div>
-    <p>current User: {{ userInfo.username }}</p>
-    <p>recent searches: {{ userInfo.recent_searches }}</p>
-    <p>current favorites: {{ userInfo.favorited }}</p>
-    <p>session: {{ userInfo.session }}</p>
+    <DevInfoDisplay :currentUser="userInfo"/>
     <Modal v-if="displayModal"
                v-on:remove-modal="closeModal" />
     <AppHeader v-on:user-login="signIn"
@@ -15,8 +12,10 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import DevInfoDisplay from '~/components/Modal/DevInfoDisplay.vue';
 
 export default {
+  components: { DevInfoDisplay },
   data(){
     return {
       displayModal: false,
