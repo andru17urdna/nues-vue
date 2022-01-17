@@ -1,6 +1,5 @@
 <template>
   <header class="header">
-      <DevInfoDisplay />
     <h1 class="title">Navigation</h1>
 
     <div v-if="!userLoggedIn">
@@ -12,9 +11,6 @@
     </div>
         <nuxt-link to="/">Home</nuxt-link>
         <nuxt-link to="/search">Search</nuxt-link>
-        <!-- <nuxt-link v-if="userLoggedIn" :to="'user/your-profile'">Your Profile</nuxt-link> -->
-
-
   </header>
 </template>
 

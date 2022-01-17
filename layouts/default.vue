@@ -1,6 +1,10 @@
 <template>
   <div>
-    <DevInfoDisplay :currentUser="userInfo"/>
+    <DevInfoDisplay :user="userInfo"
+                    :iterator="iterator"
+                    v-on:next-iter="iterator++"
+                    v-on:prev-iter="iterator--"
+                    />
     <Modal v-if="displayModal"
                v-on:remove-modal="closeModal" />
     <AppHeader v-on:user-login="signIn"
@@ -17,13 +21,19 @@ export default {
   data(){
     return {
       displayModal: false,
+      iterator: 0,
     }
   },
   computed: {
-    ...mapGetters('userInfo', ['userInfo'])
+    ...mapGetters('userInfo', ['userInfo']),
   },
   created(){
-    console.log(this.userInfo)
+
+  },
+  watch: {
+    $route (to, from) {
+      this.iterator = 0;
+    }
   },
   methods: {
     ...mapActions('userInfo', ['fetchUserInfo', 'removeUserInfo']),

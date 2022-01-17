@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="article">
       <h2>{{article.title}}</h2>
       <img :src="article.urlToImage" alt="">
       <p>Author: {{article.author}}</p>
@@ -26,7 +26,6 @@ export default {
   },
   created() {
     this.article = this.singleArticle(this.params.split("-").join(" "));
-    console.log(this.article);
   }
 }
 </script>
