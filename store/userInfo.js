@@ -36,6 +36,12 @@ const actions = {
     async updateUserSearches({commit}, data) {
         commit('updateUserSearches', data)
     },
+    async updateUserFavorites({commit}, data) {
+        commit('updateUserFavorites', data)
+    },
+    async removeUserFavorite({commit}, data) {
+        commit('removeUserFavorite', data)
+    },
     async updateUserSettings({commit}, data) {
         commit('updateUserSettings', data)
     }
@@ -50,6 +56,13 @@ const mutations = {
     },
     updateUserSettings: (state, data) => {
         return state.userInfo.settings.display = data;
+    },
+    updateUserFavorites: (state, data) => {
+        return state.userInfo.favorited.push(data);
+    },
+    removeUserFavorite: (state, data) => {
+        console.log(data);
+        return state.userInfo.favorited = state.userInfo.favorited.filter(tag => tag !== data);
     }
 }
 

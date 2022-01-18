@@ -17,50 +17,45 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "DevInfoDisplay",
-  props: ['user', 'iterator'],
+  props: ['user'],
   data() {
     return {
       showPrev: false,
       showNext: true,
-      isHidden: false
+      isHidden: false,
+      iterator: 0,
     }
   },
   computed: {
     ...mapGetters('devMessage', ['getMessage'])
   },
-
   created() {
-    this.fetchMessage('homePage');
     this.buttonSwitch();
   },
   watch: {
-
+    $route (to, from) {
+      this.fetchMessage(to.name);
+      this.iterator = 0;
+      this.buttonSwitch();
+    }
   },
   methods: {
     ...mapActions('devMessage', ['fetchMessage']),
     nextIteration() {
-      this.$emit('next-iter')
-      this.buttonSwitch()
+      this.iterator++;
+      this.buttonSwitch();
     },
     prevIteration() {
-      this.$emit('prev-iter')
-      this.buttonSwitch()
+      this.iterator--;
+      this.buttonSwitch();
     },
     buttonSwitch() {
-      if (this.getMessage.length === 1) {
+      if (this.getMessage.length <= 1) {
         this.showPrev = false;
         this.showNext = false;
       }
-      if (this.iterator <= 0) {
-        this.showPrev = false;
-      } else {
-        this.showPrev = true;
-      }
-      if (this.iterator >= this.getMessage.length -1) {
-        this.showNext = false;
-      } else {
-        this.showNext = true;
-      }
+      this.iterator <= 0 ? this.showPrev = false : this.showPrev = true;
+      this.iterator >= this.getMessage.length -1 ? this.showNext = false : this.showNext = true;
     }
   }
 }

@@ -25,6 +25,7 @@ export default {
     ...mapGetters('articlesData', ['singleArticle']),
   },
   created() {
+    console.log(this.$route.params);
     this.article = this.singleArticle(this.params.split("-").join(" "));
   }
 }

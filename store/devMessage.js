@@ -1,5 +1,5 @@
 const devMessageObj = {
-    homePage: [
+    index: [
         'This modal is only temporary as way to show data changing in state on page as well as interaction on each page. But also for me to give you sarcastic remarks the entire time you are here!! :D',
         'This is just a second message.',
         'This is the third message'

@@ -20,12 +20,12 @@ const actions = {
         commit('setArticles', res.data.articles);
     },
     async fetchUserArticles( { commit }, arr ) {
-        // const res = await axios.get(`http://localhost:8000/api/news/user-favorites/?tags=${arr.join(",")}`);
-        // commit('setArticles', res.data);
-
-        const res = await axios.get(`http://localhost:8000/api/news/user-favorites`);
-        console.log(res.data);
+        const res = await axios.get(`http://localhost:8000/api/news/user-favorites/?tags=${arr.join(",")}`);
+        console.log(res.data.articles);
         commit('setArticles', res.data.articles);
+
+        // const res = await axios.get(`http://localhost:8000/api/news/user-favorites`);
+        // commit('setArticles', res.data.articles);
 
     },
     async deleteArticle({ commit }, title) {

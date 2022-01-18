@@ -1,5 +1,6 @@
 <template>
-<nuxt-link class="Article_container-nuxtlink" :to="'article/' +  joinedTitle">
+<nuxt-link class="Article_container-nuxtlink"
+    :to="{ path:'article/' +  joinedTitle, params: { articleName: title }}">
   <div :class="[fromMain ? 'Main--Article_container-div' : 'Article_container-div']">
       <p class="Article_source-p" v-if="sourceShow">{{source.name}}</p>
       <img :src="urlToImage" alt="">
@@ -35,7 +36,8 @@ export default {
     computed: {
       ...mapGetters('userInfo', ['userInfo']),
       joinedTitle() {
-        return this.title.split(" ").join('-')
+        const hyphenator = this?.title;
+        return hyphenator?.split(" ").join('-');
       }
     },
     created() {

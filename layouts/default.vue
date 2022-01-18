@@ -1,10 +1,6 @@
 <template>
   <div>
-    <DevInfoDisplay :user="userInfo"
-                    :iterator="iterator"
-                    v-on:next-iter="iterator++"
-                    v-on:prev-iter="iterator--"
-                    />
+    <!-- <DevInfoDisplay :user="userInfo" /> -->
     <Modal v-if="displayModal"
                v-on:remove-modal="closeModal" />
     <AppHeader v-on:user-login="signIn"
@@ -21,7 +17,6 @@ export default {
   data(){
     return {
       displayModal: false,
-      iterator: 0,
     }
   },
   computed: {
