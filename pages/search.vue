@@ -18,9 +18,7 @@
     <button :disabled="errorMessage" @click="saveUserFavorite">Save Search to Favorites</button>
 
 
-    <Article v-for="article in searchResults" :key=article.id :source="article.source" :author="article.source"
-             :content="article.content" :description="article.description" :publishedAt="article.publishedAt"
-             :title="article.title" :url="article.url" :urlToImage="article.urlToImage" :location="'Search'"/>
+    <Article v-for="article in searchResults" :key=article.id :singlearticle="article" :location="'Search'"/>
   </div>
 </template>
 
@@ -43,32 +41,42 @@ export default {
     methods: {
         ...mapActions('userInfo', ['updateUserSearches', 'updateUserFavorites', 'removeUserFavorite']),
         ...mapActions('devMessage', ['fetchMessage']),
+        session() {
+            return this.userInfo.session
+        },
         async searchNews() {
             try {
                 const res = await axios.get(`http://localhost:8000/api/search/?tags=${this.searchString}`);
                 this.searchResults = res.data.articles
-                this.updateUserSearches(this.searchString)
+                if (this.session()) {
+                    this.updateUserSearches(this.searchString)
+                }
             } catch (err) {
                 console.log(err);
             }
         },
         async previousSearch(string){
-            try {
-                this.searchString = string;
-                const res = await axios.get(`http://localhost:8000/api/search/?tags=${string}`);
-                // const res = await axios.get(`http://localhost:8000/api/search/`);
-                this.searchResults = res.data.articles
+            if (this.session()) {
+                try {
+                    this.searchString = string;
+                    const res = await axios.get(`http://localhost:8000/api/search/?tags=${string}`);
+                    // const res = await axios.get(`http://localhost:8000/api/search/`);
+                    this.searchResults = res.data.articles
 
-            } catch (err) {
-                console.log(err);
+                } catch (err) {
+                    console.log(err);
+                }
             }
         },
         async saveUserFavorite() {
-            if (this.userInfo.favorited?.length < 3) {
+            if (this.session()) {
+                if (this.userInfo.favorited?.length < 3) {
                 this.updateUserFavorites(this.searchString);
-            } else {
-                this.errorMessage = "You can only have 3 favorites at a time."
+                } else {
+                    this.errorMessage = "You can only have 3 favorites at a time."
+                }
             }
+
         },
         async deleteUserFavorite(favorite) {
             this.removeUserFavorite(favorite);

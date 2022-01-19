@@ -2,7 +2,7 @@ import axios from 'axios';
 const defaultUserSettings = {
   id: null,
   username: null,
-  session: null,
+  session: false,
   recent_searches: null,
   favorited: null,
   settings: {
@@ -61,7 +61,6 @@ const mutations = {
         return state.userInfo.favorited.push(data);
     },
     removeUserFavorite: (state, data) => {
-        console.log(data);
         return state.userInfo.favorited = state.userInfo.favorited.filter(tag => tag !== data);
     }
 }

@@ -1,7 +1,7 @@
 {
   "id": 1,
   "username": "Demo",
-  "session": null,
+  "session": false,
   "recent_searches": [
     "bitcoin",
     "tesla",

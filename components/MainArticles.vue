@@ -2,7 +2,9 @@
   <div v-if="mainArticles" :style="{gridTemplateColumns: `repeat(${this.userSettings.columns}, 1fr)`}" class="MainArticle_container-div">
     <h2 class="MainArticle_header-h2">Todays Articles:</h2>
 
-    <WrapperLinkWrapper v-bind:is="Article" v-for="article in mainArticles" :key=article.id :singlearticle="article" />
+    <WrapperNuxtLink v-for="article in mainArticles" :key=article.id :url="article.id">
+        <Article :singlearticle="article" :location="'MainArticles'" />
+    </WrapperNuxtLink>
 
   </div>
 </template>
@@ -28,13 +30,14 @@ export default {
     } else {
       this.fetchUserArticles();
     }
-      console.log(this.mainArticles, "HERE THEY IS")
   },
   methods:{
-    ...mapActions('articlesData',[
-            'fetchDefaultArticles', 'fetchUserArticles',
-             'deleteArticle'
-    ]),
+    ...mapActions(
+        'articlesData',[
+              'fetchDefaultArticles',
+              'fetchUserArticles',
+              'deleteArticle'
+        ]),
     ...mapActions('devMessage', ['fetchMessage'])
   }
 }

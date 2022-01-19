@@ -1,9 +1,9 @@
 <template>
     <div class="Top-Headline_conatiner-div" @mouseover="clearIterate" @mouseleave="iterate">
         <h1>TOP-HEADLINES</h1>
-        <Article  v-if="topHeadline !== null" :source="topHeadline.source" :author="topHeadline.source"
-             :content="topHeadline.content" :description="topHeadline.description" :publishedAt="topHeadline.publishedAt"
-             :title="topHeadline.title" :url="topHeadline.url" :urlToImage="topHeadline.urlToImage" :location="'TopHeadlines'"/>
+        <Article  v-if="topHeadline"
+                  :singlearticle="topHeadline"
+                  :location="'TopHeadlines'"/>
     </div>
 </template>
 

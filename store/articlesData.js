@@ -21,7 +21,6 @@ const actions = {
     },
     async fetchUserArticles( { commit }, arr ) {
         const res = await axios.get(`http://localhost:8000/api/news/user-favorites/?tags=${arr.join(",")}`);
-        console.log(res.data.articles);
         commit('setArticles', res.data.articles);
 
         // const res = await axios.get(`http://localhost:8000/api/news/user-favorites`);
