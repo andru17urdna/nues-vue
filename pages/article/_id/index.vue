@@ -1,5 +1,7 @@
 <template>
-  <div v-if="article">
+  <div v-if="this.article">
+    <h2>ARTICLE </h2>
+
       <h2>{{article.title}}</h2>
       <img :src="article.urlToImage" alt="">
       <p>Author: {{article.author}}</p>
@@ -17,7 +19,6 @@ import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      params: this.$route.params.title,
       article: null
     }
   },
@@ -25,8 +26,7 @@ export default {
     ...mapGetters('articlesData', ['singleArticle']),
   },
   created() {
-    console.log(this.$route.params);
-    this.article = this.singleArticle(this.params.split("-").join(" "));
+    this.article = this.singleArticle(this.$route.params.id);
   }
 }
 </script>

@@ -25,7 +25,17 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    //server side rendering and client side
+    // '~/plugins/newsAPI.js',
+
+    // only on client side rendering
+    // {
+    //   src: '~/plugins/newsAPI.js',
+    //   mode: 'client'
+    // }
+
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

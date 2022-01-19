@@ -1,9 +1,9 @@
 <template>
   <div v-if="mainArticles" :style="{gridTemplateColumns: `repeat(${this.userSettings.columns}, 1fr)`}" class="MainArticle_container-div">
     <h2 class="MainArticle_header-h2">Todays Articles:</h2>
-    <Article v-for="article in mainArticles" :key=article.id :source="article.source" :author="article.source"
-             :content="article.content" :description="article.description" :publishedAt="article.publishedAt"
-             :title="article.title" :url="article.url" :urlToImage="article.urlToImage" :location="'MainArticles'"/>
+
+    <WrapperLinkWrapper v-bind:is="Article" v-for="article in mainArticles" :key=article.id :singlearticle="article" />
+
   </div>
 </template>
 
@@ -28,9 +28,13 @@ export default {
     } else {
       this.fetchUserArticles();
     }
+      console.log(this.mainArticles, "HERE THEY IS")
   },
   methods:{
-    ...mapActions('articlesData',['fetchDefaultArticles', 'fetchUserArticles', 'deleteArticle']),
+    ...mapActions('articlesData',[
+            'fetchDefaultArticles', 'fetchUserArticles',
+             'deleteArticle'
+    ]),
     ...mapActions('devMessage', ['fetchMessage'])
   }
 }

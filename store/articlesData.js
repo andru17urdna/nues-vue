@@ -8,8 +8,8 @@ const state = () => ({
 
 const getters = {
     mainArticles: (state) => state.articles,
-    singleArticle: (state) => (title) => {
-        return state.articles.find(article => article.title === title )
+    singleArticle: (state) => (id) => {
+        return state.articles.find(article => article.id === +id)
     }
 }
 

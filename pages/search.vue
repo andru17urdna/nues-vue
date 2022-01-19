@@ -17,6 +17,7 @@
     </form>
     <button :disabled="errorMessage" @click="saveUserFavorite">Save Search to Favorites</button>
 
+
     <Article v-for="article in searchResults" :key=article.id :source="article.source" :author="article.source"
              :content="article.content" :description="article.description" :publishedAt="article.publishedAt"
              :title="article.title" :url="article.url" :urlToImage="article.urlToImage" :location="'Search'"/>
