@@ -48,6 +48,10 @@ export default {
     },
     methods:{
         ...mapActions('articlesData',['fetchDefaultArticles', 'deleteArticle']),
+        stuff(){
+          console.log('i am here')
+          return 'this is stuff'
+        },
         displaySwitch() {
           switch (this.location) {
             case 'MainArticles':{

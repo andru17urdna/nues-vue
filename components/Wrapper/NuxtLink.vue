@@ -1,7 +1,7 @@
 <template>
     <nuxt-link v-if="url"
         class="WrapperNuxtLink_container-nuxtlink"
-        :to="'article/' + this.url">
+        :to="'article/' + url">
         <slot>Broken Article</slot>
     </nuxt-link>
 </template>
@@ -10,7 +10,7 @@
 export default {
     data() {
         return {
-
+            data: null
         }
     },
     props: ['url'],

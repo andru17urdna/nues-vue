@@ -4,7 +4,7 @@
       <p> Your current Favorite Tags:</p>
       <p v-for="(tag, index) in userInfo.favorited"
             :key=index >{{ tag }}
-            <button @click="removeUserFavorite(tag)">X</button></p>
+            <button @click="deleteUserFavorite(tag)">X</button></p>
       <p v-if="errorMessage">{{ errorMessage }}</p>
 
       <p>Your Most Recent Searches:</p>
@@ -16,7 +16,6 @@
         <input type="submit" value="Search">
     </form>
     <button :disabled="errorMessage" @click="saveUserFavorite">Save Search to Favorites</button>
-
 
     <Article v-for="article in searchResults" :key=article.id :singlearticle="article" :location="'Search'"/>
   </div>
@@ -80,6 +79,9 @@ export default {
         },
         async deleteUserFavorite(favorite) {
             this.removeUserFavorite(favorite);
+            if (this.errorMessage) {
+                this.errorMessage = null;
+            }
         }
     },
     created() {
