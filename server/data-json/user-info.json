@@ -11,6 +11,7 @@
     "animals",
     "investing"
   ],
+  "queue": [],
   "settings": {
     "display": {
       "columns": 3,

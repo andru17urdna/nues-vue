@@ -1,11 +1,13 @@
 <template>
   <div>
-    <!-- <DevInfoDisplay :user="userInfo" /> -->
+    <DevInfoDisplay :user="userInfo" />
     <Modal v-if="displayModal"
+           :type="modalType"
                v-on:remove-modal="closeModal" />
     <AppHeader v-on:user-login="signIn"
                v-on:user-logout="logout"
-               v-on:show-settings="showModal"/>
+               v-on:show-settings="showSettingsModal"
+               v-on:show-queue="showQueueModal"/>
     <Nuxt />
   </div>
 </template>
@@ -17,6 +19,7 @@ export default {
   data(){
     return {
       displayModal: false,
+      modalType: 'user-Settings'
     }
   },
   computed: {
@@ -41,11 +44,16 @@ export default {
       this.removeUserInfo();
       this.fetchDefaultArticles();
     },
-    showModal() {
+    showSettingsModal() {
+      this.modalType= 'user-Settings';
       this.displayModal = true;
     },
     closeModal() {
       this.displayModal = false;
+    },
+    showQueueModal() {
+      this.modalType = 'user-Queue';
+      this.displayModal = true;
     }
   }
 }

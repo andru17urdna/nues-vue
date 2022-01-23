@@ -10,6 +10,10 @@
             width: 90px;
         }
 
+        .Article_add-btn{
+            height: 20px;
+        }
+
     }
 
     .Main--Article_container-div{
@@ -27,6 +31,12 @@
             grid-column: 3;
             grid-row: 1;
             justify-self: center;
+        }
+
+        .Article_add-btn{
+            height: 20px;
+            grid-column: 5;
+            grid-row: 2;
         }
 
         .Article_source-p{

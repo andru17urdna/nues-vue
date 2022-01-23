@@ -3,8 +3,8 @@
     class="DevInfoDisplay_container-div">
     <div v-if="!isHidden">
       <h3>Dev info display</h3>
-      <p>Username: {{ user.username }} - Favorited: {{ user.favorited }} - Recent Searches: {{ user.recent_searches}}</p>
-      <p>{{ getMessage[iterator] }}</p>
+      <p>Queue {{ user.queueData.queueIds }} - Favorited: {{ user.favorited }} - Recent Searches: {{ user.recent_searches}}</p>
+      <!-- <p>{{ getMessage[iterator] }}</p> -->
       <button v-if="showPrev" @click="prevIteration">Previous</button>
       <button v-if="showNext" @click="nextIteration">Next</button>
     </div>
