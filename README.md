@@ -43,12 +43,10 @@ Create .env
 
     based on example.env
     add api key
-To run server:
+To run server & application:
 
-    npm start or yarn server 
-To run application:
-
-    yarn dev
+    npm run run-all
+    yarn run-all
 Server running:
 
     Party on Port:8000!
