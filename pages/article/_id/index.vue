@@ -1,7 +1,5 @@
 <template>
-  <div v-if="this.article">
-    <h2>ARTICLE </h2>
-
+  <div class="_id-Article_conatiner-div" v-if="this.article">
       <h2>{{article.title}}</h2>
       <img :src="article.urlToImage" alt="">
       <p>Author: {{article.author}}</p>
@@ -31,6 +29,27 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss' scoped>
+
+$width-calc: calc(150px + 100vw - 1000px);
+
+._id-Article_conatiner-div{
+    padding: 1rem;
+    border: 3px solid black;
+    margin: 1rem 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2,p{
+      text-align: center;
+      width: calc(150px + 100vw - 1000px);
+    }
+
+    img{
+      width: $width-calc;
+    }
+}
+
 
 </style>

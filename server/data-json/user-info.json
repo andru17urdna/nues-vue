@@ -1,6 +1,6 @@
 {
   "id": 1,
-  "username": "Demo",
+  "username": "Demo-User",
   "session": false,
   "recent_searches": [
     "bitcoin",
@@ -11,7 +11,7 @@
     "animals",
     "investing"
   ],
-  "queue": [],
+  "queueData": [],
   "settings": {
     "display": {
       "columns": 3,

@@ -1,23 +1,31 @@
 <template>
-  <div>
-      <h1>SEARCH</h1>
-      <p> Your current Favorite Tags:</p>
-      <p v-for="(tag, index) in userInfo.favorited"
-            :key=index >{{ tag }}
-            <button @click="deleteUserFavorite(tag)">X</button></p>
-      <p v-if="errorMessage">{{ errorMessage }}</p>
+  <div class="Search_container-div">
+    <div class="Search_userInfo-div">
+          <h1>SEARCH</h1>
+              <h3> Your current Favorite Tags:</h3>
+          <div class="inline">
+              <p class="underline Search_userInfo-p" v-for="(tag, index) in userInfo.favorited"
+                    :key=index >{{ tag }}
+                    <button @click="deleteUserFavorite(tag)">X</button></p>
+              <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
+          </div>
 
-      <p>Your Most Recent Searches:</p>
-      <ul>
-          <li @click="previousSearch(prevSearch)" v-for="prevSearch in userInfo.recent_searches" :key="prevSearch">{{prevSearch}}</li>
-      </ul>
-    <form @submit.prevent="searchNews">
-        <input type="text" v-model="searchString" placeholder="SEARCH">
-        <input type="submit" value="Search">
-    </form>
-    <button :disabled="errorMessage" @click="saveUserFavorite">Save Search to Favorites</button>
+          <h3>Most Recent Searches:</h3>
 
-    <Article v-for="article in searchResults" :key=article.id :singlearticle="article" :location="'Search'"/>
+              <div class="inline">
+                  <p class="underline Search_userInfo-p" @click="previousSearch(prevSearch)" v-for="prevSearch in userInfo.recent_searches" :key="prevSearch">{{prevSearch}}</p>
+              </div>
+
+        <form class="Search_Form-form" @submit.prevent="searchNews">
+            <input class="Search_Form-input" type="text" v-model="searchString" placeholder="SEARCH">
+            <input class="Search_Form-btn" type="submit" value="Search">
+        </form>
+        <button v-if="userInfo.session" :disabled="errorMessage" @click="saveUserFavorite">Save Search to Favorites</button>
+    </div>
+
+    <div class="Search_articleContainer-div">
+        <Article v-for="article in searchResults" :key=article.id :singlearticle="article" :location="'Search'"/>
+    </div>
   </div>
 </template>
 
@@ -89,7 +97,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

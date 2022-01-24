@@ -1,6 +1,6 @@
 <template>
     <div class="Top-Headline_conatiner-div" @mouseover="clearIterate" @mouseleave="iterate">
-        <h1>TOP-HEADLINES</h1>
+        <h1 class="Top-Headline_header-h1">TOP-HEADLINES</h1>
         <Article  v-if="topHeadline"
                   :singlearticle="topHeadline"
                   :location="'TopHeadlines'"/>
@@ -53,8 +53,19 @@ export default {
 
 <style lang="scss">
     .Top-Headline_conatiner-div{
+        padding: 10px;
+        display: grid;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+        border-bottom: black solid 3px;
+
         a{
             color:red
+        }
+
+        .Top-Headline_header-h1{
+            grid-row: 1/-1;
+            margin-right: 10px;
         }
     }
 </style>

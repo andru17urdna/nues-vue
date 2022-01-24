@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DevInfoDisplay :user="userInfo" />
+    <!-- <DevInfoDisplay :user="userInfo" /> -->
     <Modal v-if="displayModal"
            :type="modalType"
                v-on:remove-modal="closeModal" />

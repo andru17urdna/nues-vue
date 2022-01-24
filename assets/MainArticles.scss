@@ -1,7 +1,7 @@
 .MainArticle_container-div{
     padding-left: 1rem;
     padding-right: 1rem;
-    background-color: gray;
+    background-color: cadetblue;
     display: grid;
     // grid-template-columns:  null;
         // setting happens in-line by state ~location: MainArticles
@@ -14,6 +14,8 @@
         color: white;
         grid-column: 1 / -1;
         padding-left: 2rem;
+        align-self: center;
+        font-size: 30px;
     }
 
 }

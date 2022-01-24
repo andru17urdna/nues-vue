@@ -13,7 +13,12 @@ export default {
       { name: 'keywords', content: 'HTML, CSS, JavaScript, Vue, Nuxt' },
       { hid: 'description', name: 'description', content: 'News available from every source, all in one place.' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono'},
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Epilogue'},
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Oswald'},
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -21,7 +26,7 @@ export default {
     '~/assets/global.scss',
     `~/assets/MainArticles.scss`,
     `~/assets/Article.scss`,
-
+    `~/assets/Search.scss`
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

@@ -3,3 +3,38 @@
     margin: 0;
     padding: 0;
 }
+
+h1, h2 {
+    font-family: 'JetBrains Mono';
+}
+
+h3 {
+    font-family: 'Epilogue';
+}
+
+p{
+    font-family: 'Oswald';
+}
+
+.error-message{
+    color: red;
+    padding-left: 5px;
+}
+
+button{
+    background: rgb(238, 238, 238);
+    font-family: 'Epilogue';
+    font-weight: bold;
+    border: solid black 2px;
+    white-space: nowrap;
+    padding: 3px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: white;
+}
+button:active{
+    background: gray;
+    transform: translate(0, 3px) ;
+}

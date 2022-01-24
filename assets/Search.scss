@@ -1,0 +1,56 @@
+.Search_container-div {
+
+    .underline{
+        text-decoration: underline;
+    }
+
+    .Search_Form-form{
+        padding: 5px;
+
+        .Search_Form-input{
+            border: black solid 3px;
+            height: 40px;
+            text-align: center;
+        }
+
+        .Search_Form-btn{
+            background: rgb(238, 238, 238);
+            font-family: 'Epilogue';
+            font-weight: bold;
+            border: solid black 2px;
+            white-space: nowrap;
+            padding: 3px;
+            cursor: pointer;
+        }
+
+    }
+
+
+
+    .inline{
+        display: flex;
+        padding: 5px;
+
+        .Search_userInfo-p{
+            padding-left: 10px;
+            cursor: pointer;
+        }
+
+        .Search_userInfo-p:hover{
+            color: cadetblue;
+        }
+    }
+
+    .Search_userInfo-div{
+        background: burlywood;
+        padding: 20px;
+        border-bottom: black solid 3px;
+    }
+
+    .Search_articleContainer-div{
+        background: rgb(223, 223, 165);
+        height: 100%;
+        padding: 40px;
+    }
+
+}

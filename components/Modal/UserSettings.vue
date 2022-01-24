@@ -49,7 +49,7 @@ export default {
         mode: this.mode
       }
       this.updateUserSettings(data)
-      if (boolean) this.closeModal();
+      if (boolean) this.$emit('remove-modal')
     },
   }
 }

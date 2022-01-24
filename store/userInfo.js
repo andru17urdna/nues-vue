@@ -5,10 +5,7 @@ const defaultUserSettings = {
   session: false,
   recent_searches: null,
   favorited: null,
-  queueData: {
-      queue: [],
-      queueIds: {}
-  },
+  queueData: [],
   settings: {
     display: {
       columns: 2,
@@ -25,8 +22,7 @@ const state = () => ({
 const getters = {
     userInfo: (state) => state.userInfo,
     userSettings: (state) => state.userInfo.settings.display,
-    userQueue: (state) => state.userInfo.queueData.queue,
-    userQueueIds: (state) => state.userInfo.queueData.queueIds
+    userQueue: (state) => state.userInfo.queueData
 }
 
 const actions = {
@@ -49,7 +45,6 @@ const actions = {
         commit('removeUserFavorite', data)
     },
     async updateUserQueue({commit}, data) {
-        console.log(data, 'STORE')
         commit('addToUserQueue', data)
     },
     async removeUserQueue({commit}, data) {
@@ -77,16 +72,10 @@ const mutations = {
         return state.userInfo.favorited = state.userInfo.favorited.filter(tag => tag !== data);
     },
     addToUserQueue: (state, data) => {
-        state.userInfo.queueData.queue.push(data);
-        console.log(typeof data.id)
-        state.userInfo.queueData.queueIds[data.id] = data.id;
-        console.log(state.userInfo.queueData, ' ')
-        return
+        return state.userInfo.queueData.push(data);
     },
     removeFromUserQueue: (state, id) => {
-        state.userInfo.queueData.queue = state.userInfo.queueData.queue.filter(article => article.id !== id);
-        delete state.userInfo.queueData.queueIds[id];
-        return
+        return state.userInfo.queueData = state.userInfo.queueData.filter(article => article.id !== id);
     }
 }
 
