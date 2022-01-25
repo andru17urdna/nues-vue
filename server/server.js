@@ -9,13 +9,11 @@ dotenv.config();
 // console.log(process.env.API_KEY)
 
 const app = express();
-const port = 8000;
 
 
 app.use(idGenerator);
 app.use(cors());
 app.use(apiRoutes);
 
-app.listen(port, () => console.log(`Party on Port:${port}!`))
 
 export default app;
