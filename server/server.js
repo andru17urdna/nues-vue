@@ -9,7 +9,7 @@ dotenv.config();
 // console.log(process.env.API_KEY)
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 8000;
 
 
 app.use(idGenerator);
