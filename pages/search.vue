@@ -53,7 +53,7 @@ export default {
         },
         async searchNews() {
             try {
-                const res = await axios.get(`https://nues-vue.herokuapp.com/api/search/?tags=${this.searchString}`);
+                const res = await this.$axios.get(`/api/search/?tags=${this.searchString}`);
                 this.searchResults = res.data.articles
                 if (this.session()) {
                     this.updateUserSearches(this.searchString)
@@ -66,8 +66,8 @@ export default {
             if (this.session()) {
                 try {
                     this.searchString = string;
-                    const res = await axios.get(`https://nues-vue.herokuapp.com/api/search/?tags=${string}`);
-                    // const res = await axios.get(`https://nues-vue.herokuapp.com/api/search/`);
+                    const res = await this.$axios.get(`/api/search/?tags=${string}`);
+                    // const res = await this.$axios.get(`/api/search/`);
                     this.searchResults = res.data.articles
 
                 } catch (err) {

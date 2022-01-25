@@ -16,14 +16,14 @@ const getters = {
 
 const actions = {
     async fetchDefaultArticles({ commit }) {
-        const res = await axios.get('https://nues-vue.herokuapp.com/api/news/fox-news');
+        const res = await this.$axios.get('/api/news/fox-news');
         commit('setArticles', res.data.articles);
     },
     async fetchUserArticles( { commit }, arr ) {
-        const res = await axios.get(`https://nues-vue.herokuapp.com/api/news/user-favorites/?tags=${arr.join(",")}`);
+        const res = await this.$axios.get(`/api/news/user-favorites/?tags=${arr.join(",")}`);
         commit('setArticles', res.data.articles);
 
-        // const res = await axios.get(`https://nues-vue.herokuapp.com/api/news/user-favorites`);
+        // const res = await this.$axios.get(`/api/news/user-favorites`);
         // commit('setArticles', res.data.articles);
 
     },

@@ -1,4 +1,3 @@
-import axios from 'axios';
 const defaultUserSettings = {
   id: null,
   username: null,
@@ -27,8 +26,8 @@ const getters = {
 
 const actions = {
     async fetchUserInfo({ commit }) {
-        const res = await axios.get(
-            'https://nues-vue.herokuapp.com//api/users/user-data')
+        const res = await this.$axios.get(
+            '/api/users/user-data')
             res.data.session = true;
             commit('setUser', res.data)
     },

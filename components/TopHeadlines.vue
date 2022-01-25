@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
     name: 'TopHeadlines',
@@ -28,7 +27,7 @@ export default {
         }
 
         try {
-            const res = await axios.get(`https://nues-vue.herokuapp.com/api/news/top-headlines`, config);
+            const res = await this.$axios.get(`/api/news/top-headlines`, config);
             this.headlines = res.data.articles
             this.topHeadline = this.headlines[0];
             this.iterate();

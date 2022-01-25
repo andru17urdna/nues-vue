@@ -8,7 +8,6 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "server": "nodemon -r dotenv/config server/server.js",
     "generate": "nuxt generate",
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:prettier",
