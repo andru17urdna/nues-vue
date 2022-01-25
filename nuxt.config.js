@@ -1,3 +1,6 @@
+// Add to link when favico is ready to go
+  // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -14,7 +17,6 @@ export default {
       { hid: 'description', name: 'description', content: 'News available from every source, all in one place.' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Epilogue'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Oswald'},
