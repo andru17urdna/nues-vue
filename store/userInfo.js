@@ -28,7 +28,7 @@ const getters = {
 const actions = {
     async fetchUserInfo({ commit }) {
         const res = await axios.get(
-            'http://localhost:8000/api/users/user-data')
+            'https://nues-vue.herokuapp.com//api/users/user-data')
             res.data.session = true;
             commit('setUser', res.data)
     },

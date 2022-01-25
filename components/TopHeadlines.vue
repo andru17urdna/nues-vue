@@ -28,7 +28,7 @@ export default {
         }
 
         try {
-            const res = await axios.get(`http://localhost:8000/api/news/top-headlines`, config);
+            const res = await axios.get(`https://nues-vue.herokuapp.com/api/news/top-headlines`, config);
             this.headlines = res.data.articles
             this.topHeadline = this.headlines[0];
             this.iterate();
