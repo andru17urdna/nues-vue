@@ -4,7 +4,9 @@
           <h1>SEARCH</h1>
               <h3 v-if="userInfo.session"> Your current Favorite Tags:</h3>
           <div class="inline">
-              <p class="underline Search_userInfo-p" v-for="(tag, index) in userInfo.favorited"
+              <p class="underline Search_userInfo-p"
+                    @click.stop="previousSearch(tag)"
+                     v-for="(tag, index) in userInfo.favorited"
                     :key=index >{{ tag }}
                     <button @click="deleteUserFavorite(tag)">X</button></p>
               <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
