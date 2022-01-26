@@ -1,7 +1,7 @@
 <template>
   <div v-if="this.singlearticle" class="Article_wrapper-div">
     <div :class="currentClass">
-      <button v-if="addQueueBtn" class="Article_add-btn" @click.prevent="updateUserQueue(article)">Add to Queue</button>
+      <button v-if="addQueueBtn && userInfo.session" class="Article_add-btn" @click.prevent="updateUserQueue(article)">Add to Queue</button>
         <p class="Article_source-p" v-if="sourceShow">{{ singlearticle.source.name || "Anonymous" }}</p>
         <img :src="singlearticle.urlToImage" alt="">
         <h2 class="Article_title-h2">{{ singlearticle.title }}</h2>

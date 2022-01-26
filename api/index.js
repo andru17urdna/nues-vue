@@ -1,12 +1,13 @@
 import cors from 'cors';
 import dotenv from "dotenv";
 import express from 'express';
-import apiRoutes from './api/index.js';
 import idGenerator from './middleware/idGenerator.js';
+import apiRoutes from './routes/index.js';
+
 
 
 dotenv.config();
-// console.log(process.env.API_KEY)
+
 
 const app = express();
 
@@ -14,6 +15,11 @@ const app = express();
 app.use(idGenerator);
 app.use(cors());
 app.use(apiRoutes);
+
+
+app.get('/',(req,res)=>{
+    res.json({message:"hello there"})
+ })
 
 
 export default app;

@@ -50,6 +50,14 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
+    broswerBaseUrl: '/',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Accept' : 'application/json, text/plain, */*',
+      'Access-Control-Allow-Methods' : 'GET, PUT, POST, DELETE, OPTIONS',
+      'Access-Control-Allow-Credentials' : true,
+    }
   },
 
   // publicRuntimeConfig: {
@@ -68,6 +76,8 @@ export default {
   build: {},
 
   serverMiddleware: [
-    { path: "/server", handler: "~/server/server.js" },
+    // { path: "/server-middleware", handler: "~/server-middleware/index.js" },
+    // { path: "/server-middleware", handler: "~/server-middleware/rest.js" },
+    { path: '/api', handler: '~/api/index.js' }
   ],
 }

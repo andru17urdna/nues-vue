@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'MainArticles',
@@ -28,7 +28,7 @@ export default {
     if (!this.userInfo.session) {
       this.fetchDefaultArticles();
     } else {
-      this.fetchUserArticles();
+      this.fetchUserArticles(this.userInfo.favorited);
     }
   },
   methods:{

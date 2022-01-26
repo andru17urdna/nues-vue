@@ -43,13 +43,13 @@ async function fetchArticlesByParams(paramsArr) {
 }
 
 router.get('/top-headlines', async (req, res) => {
-    const json = await JSON.parse(await readFile(new URL('../../data-json/top-headlines.json', import.meta.url)));
+    const json = await JSON.parse(await readFile(new URL('../data-json/top-headlines.json', import.meta.url)));
     res.send(json);
 })
 
 
 router.get('/fox-news', async (req, res) => {
-    const json = JSON.parse(await readFile(new URL('../../data-json/fox.json', import.meta.url)));
+    const json = JSON.parse(await readFile(new URL('../data-json/fox.json', import.meta.url)));
     res.send(json);
 })
 

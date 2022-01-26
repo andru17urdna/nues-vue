@@ -14,7 +14,8 @@ const idCreator = () => {
 
 const idGenerator = (req, res, next) => {
 
-    if (req.path === '/api/users/user-data') return next();
+
+    if (req.path === '/users/user-data') return next();
 
     res.sendRes = res.send;
 
