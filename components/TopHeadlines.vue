@@ -20,14 +20,9 @@ export default {
         }
     },
     async created() {
-        const config = {
-            headers: {
-                'Accept': 'applications/json'
-            }
-        }
 
         try {
-            const res = await this.$axios.get(`/api/news/top-headlines`, config);
+            const res = await this.$axios.get(`/api/news/top-headlines`);
             this.headlines = res.data.articles
             this.topHeadline = this.headlines[0];
             this.iterate();

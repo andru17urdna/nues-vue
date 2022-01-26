@@ -2,7 +2,7 @@
   <div class="Search_container-div">
     <div class="Search_userInfo-div">
           <h1>SEARCH</h1>
-              <h3> Your current Favorite Tags:</h3>
+              <h3 v-if="userInfo.session"> Your current Favorite Tags:</h3>
           <div class="inline">
               <p class="underline Search_userInfo-p" v-for="(tag, index) in userInfo.favorited"
                     :key=index >{{ tag }}
@@ -10,7 +10,7 @@
               <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
           </div>
 
-          <h3>Most Recent Searches:</h3>
+          <h3 v-if="userInfo.session">Most Recent Searches:</h3>
 
               <div class="inline">
                   <p class="underline Search_userInfo-p" @click="previousSearch(prevSearch)" v-for="prevSearch in userInfo.recent_searches" :key="prevSearch">{{prevSearch}}</p>
@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import { mapActions, mapGetters } from "vuex";
 
 export default {
