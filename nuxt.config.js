@@ -19,6 +19,10 @@ export default {
     '~/assets/global.scss'
   ],
 
+  server: {
+    port: 3008 // default: 3000
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
