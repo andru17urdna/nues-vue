@@ -1,0 +1,21 @@
+.MainArticle_container-div{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: cadetblue;
+    display: grid;
+    // grid-template-columns:  null;
+        // setting happens in-line by state ~location: MainArticles
+    column-gap: 1rem;
+    row-gap: 1rem;
+    grid-template-rows: 3rem auto;
+
+
+    .MainArticle_header-h2{
+        color: white;
+        grid-column: 1 / -1;
+        padding-left: 2rem;
+        align-self: center;
+        font-size: 30px;
+    }
+
+}

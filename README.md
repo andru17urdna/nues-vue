@@ -43,12 +43,10 @@ Create .env
 
     based on example.env
     add api key
-To run server:
+To run server & application:
 
-    npm start or yarn server 
-To run application:
-
-    yarn dev
+    npm run run-all
+    yarn run-all
 Server running:
 
     Party on Port:8000!
@@ -197,7 +195,7 @@ data() {
         }
 
         try {
-            const res = await axios.get(`http://localhost:8000/api/news/top-headlines`, config);
+            const res = await axios.get(`/api/news/top-headlines`, config);
             this.headlines = res.data.articles
             this.topHeadline = this.headlines[0];
             this.iterate();
@@ -263,7 +261,7 @@ computed: {
         ...mapActions('userInfo', ['updateUserSearches']),
         async searchNews() {
             try {
-                const res = await axios.get(`http://localhost:8000/api/search/?tags=${this.searchString}`);
+                const res = await axios.get(`/api/search/?tags=${this.searchString}`);
                 this.searchResults = res.data.articles
                 this.updateUserSearches(this.searchString)
             } catch (err) {
@@ -273,7 +271,7 @@ computed: {
         async previousSearch(string){
             try {
                 this.searchString = string
-                const res = await axios.get(`http://localhost:8000/api/search/?tags=${string}`);
+                const res = await axios.get(`/api/search/?tags=${string}`);
                 this.searchResults = res.data.articles
             } catch (err) {
                 console.log(err);

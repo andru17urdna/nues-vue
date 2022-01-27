@@ -1,0 +1,24 @@
+{
+  "id": 1,
+  "username": "Demo-User",
+  "session": false,
+  "recent_searches": [
+    "bitcoin",
+    "tesla",
+    "dogs"
+  ],
+  "favorited": [
+    "animals",
+    "investing"
+  ],
+  "queueData": [],
+  "settings": {
+    "display": {
+      "columns": 3,
+      "mode": "light"
+    },
+    "blockedSources": [
+      "cnn"
+    ]
+  }
+}

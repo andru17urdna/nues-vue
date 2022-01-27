@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="index_container-div">
   <TopHeadlines />
   <MainArticles />
 </div>

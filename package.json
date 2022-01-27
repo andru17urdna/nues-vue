@@ -4,11 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "runall": "concurrently --names 'Backend,Frontend' 'yarn server' 'yarn dev'",
+    "run-all": "concurrently --names 'Backend,Frontend' 'yarn server' 'yarn dev'",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "server": "nodemon -r dotenv/config server/server.js",
     "generate": "nuxt generate",
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:prettier",

@@ -1,14 +1,13 @@
 <template>
     <div class="Top-Headline_conatiner-div" @mouseover="clearIterate" @mouseleave="iterate">
-        <h1>TOP-HEADLINES</h1>
-        <Article  v-if="topHeadline !== null" :source="topHeadline.source" :author="topHeadline.source"
-             :content="topHeadline.content" :description="topHeadline.description" :publishedAt="topHeadline.publishedAt"
-             :title="topHeadline.title" :url="topHeadline.url" :urlToImage="topHeadline.urlToImage" :location="'TopHeadlines'"/>
+        <h1 class="Top-Headline_header-h1">TOP-HEADLINES</h1>
+        <Article  v-if="topHeadline"
+                  :singlearticle="topHeadline"
+                  :location="'TopHeadlines'"/>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
     name: 'TopHeadlines',
@@ -21,14 +20,9 @@ export default {
         }
     },
     async created() {
-        const config = {
-            headers: {
-                'Accept': 'applications/json'
-            }
-        }
 
         try {
-            const res = await axios.get(`http://localhost:8000/api/news/top-headlines`, config);
+            const res = await this.$axios.get(`/api/news/top-headlines`);
             this.headlines = res.data.articles
             this.topHeadline = this.headlines[0];
             this.iterate();
@@ -53,8 +47,19 @@ export default {
 
 <style lang="scss">
     .Top-Headline_conatiner-div{
+        padding: 10px;
+        display: grid;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+        border-bottom: black solid 3px;
+
         a{
             color:red
+        }
+
+        .Top-Headline_header-h1{
+            grid-row: 1/-1;
+            margin-right: 10px;
         }
     }
 </style>

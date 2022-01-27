@@ -1,21 +1,22 @@
 <template>
-  <div>
-    <h1>Todays Articles:</h1>
-    <p v-if="this.userInfo.session">When logged in a request is made with a users favorited search strings</p>
-    <Article v-for="article in mainArticles" :key=article.title :source="article.source" :author="article.source"
-             :content="article.content" :description="article.description" :publishedAt="article.publishedAt"
-             :title="article.title" :url="article.url" :urlToImage="article.urlToImage" :location="'MainArticles'"/>
+  <div v-if="mainArticles" :style="{gridTemplateColumns: `repeat(${this.userSettings.columns}, 1fr)`}" class="MainArticle_container-div">
+    <h2 class="MainArticle_header-h2">Todays Articles:</h2>
+
+    <WrapperNuxtLink v-for="article in mainArticles" :key=article.id :url="article.id">
+        <Article :singlearticle="article" :location="'MainArticles'" />
+    </WrapperNuxtLink>
+
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'MainArticles',
   computed: {
     ...mapGetters('articlesData',['mainArticles']),
-    ...mapGetters('userInfo', ['userInfo'])
+    ...mapGetters('userInfo', ['userInfo', 'userSettings'])
   },
   data() {
     return {
@@ -23,18 +24,21 @@ export default {
     }
   },
   async created() {
+    this.fetchMessage('index')
     if (!this.userInfo.session) {
       this.fetchDefaultArticles();
     } else {
-      this.fetchUserArticles();
+      this.fetchUserArticles(this.userInfo.favorited);
     }
   },
   methods:{
-    ...mapActions('articlesData',['fetchDefaultArticles', 'fetchUserArticles', 'deleteArticle']),
+    ...mapActions(
+        'articlesData',[
+              'fetchDefaultArticles',
+              'fetchUserArticles',
+              'deleteArticle'
+        ]),
+    ...mapActions('devMessage', ['fetchMessage'])
   }
 }
 </script>
-
-<style>
-
-</style>

@@ -1,22 +1,37 @@
 <template>
-  <div>
-      <h1>SEARCH</h1>
-      <p> When a user is logged in their most recent searches are saved for ease of use</p>
-      <ul>
-          <li @click="previousSearch(prevSearch)" v-for="prevSearch in userInfo.recent_searches" :key="prevSearch">{{prevSearch}}</li>
-      </ul>
-    <form @submit.prevent="searchNews">
-        <input type="text" v-model="searchString" placeholder="SEARCH">
-    </form>
+  <div class="Search_container-div">
+    <div class="Search_userInfo-div">
+          <h1>SEARCH</h1>
+              <h3 v-if="userInfo.session"> Your current Favorite Tags:</h3>
+          <div class="inline">
+              <p class="underline Search_userInfo-p"
+                    @click.stop="previousSearch(tag)"
+                     v-for="(tag, index) in userInfo.favorited"
+                    :key=index >{{ tag }}
+                    <button @click="deleteUserFavorite(tag)">X</button></p>
+              <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
+          </div>
 
-    <Article v-for="article in searchResults" :key=article.title :source="article.source" :author="article.source"
-             :content="article.content" :description="article.description" :publishedAt="article.publishedAt"
-             :title="article.title" :url="article.url" :urlToImage="article.urlToImage" :location="'Search'"/>
+          <h3 v-if="userInfo.session">Most Recent Searches:</h3>
+
+              <div class="inline">
+                  <p class="underline Search_userInfo-p" @click="previousSearch(prevSearch)" v-for="prevSearch in userInfo.recent_searches" :key="prevSearch">{{prevSearch}}</p>
+              </div>
+
+        <form class="Search_Form-form" @submit.prevent="searchNews">
+            <input class="Search_Form-input" type="text" v-model="searchString" placeholder="SEARCH">
+            <input class="Search_Form-btn" type="submit" value="Search">
+        </form>
+        <button v-if="userInfo.session" :disabled="errorMessage" @click="saveUserFavorite">Save Search to Favorites</button>
+    </div>
+
+    <div class="Search_articleContainer-div">
+        <Article v-for="article in searchResults" :key=article.id :singlearticle="article" :location="'Search'"/>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -24,40 +39,62 @@ export default {
     data() {
         return {
             searchString: '',
-            searchResults: []
+            searchResults: [],
+            errorMessage: null
         }
     },
     computed: {
         ...mapGetters('userInfo', ['userInfo'])
     },
     methods: {
-        ...mapActions('userInfo', ['updateUserSearches']),
+        ...mapActions('userInfo', ['updateUserSearches', 'updateUserFavorites', 'removeUserFavorite']),
+        ...mapActions('devMessage', ['fetchMessage']),
+        session() {
+            return this.userInfo.session
+        },
         async searchNews() {
             try {
-                const res = await axios.get(`http://localhost:8000/api/search/?tags=${this.searchString}`);
+                const res = await this.$axios.get(`/api/search/?tags=${this.searchString}`);
                 this.searchResults = res.data.articles
-                this.updateUserSearches(this.searchString)
+                if (this.session()) {
+                    this.updateUserSearches(this.searchString)
+                }
             } catch (err) {
                 console.log(err);
             }
         },
         async previousSearch(string){
-            try {
-                this.searchString = string
-                const res = await axios.get(`http://localhost:8000/api/search/?tags=${string}`);
-                this.searchResults = res.data.articles
-            } catch (err) {
-                console.log(err);
+            if (this.session()) {
+                try {
+                    this.searchString = string;
+                    const res = await this.$axios.get(`/api/search/?tags=${string}`);
+                    // const res = await this.$axios.get(`/api/search/`);
+                    this.searchResults = res.data.articles
+
+                } catch (err) {
+                    console.log(err);
+                }
             }
         },
-    },
+        async saveUserFavorite() {
+            if (this.session()) {
+                if (this.userInfo.favorited?.length < 3) {
+                this.updateUserFavorites(this.searchString);
+                } else {
+                    this.errorMessage = "You can only have 3 favorites at a time."
+                }
+            }
 
+        },
+        async deleteUserFavorite(favorite) {
+            this.removeUserFavorite(favorite);
+            if (this.errorMessage) {
+                this.errorMessage = null;
+            }
+        }
+    },
     created() {
 
     }
 }
 </script>
-
-<style>
-
-</style>
