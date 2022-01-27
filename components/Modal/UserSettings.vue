@@ -18,12 +18,13 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name:'UserSettings',
   data() {
     return {
+      interacted: false,
       prevSettings: null,
       columns: null,
       mode: null
@@ -37,10 +38,14 @@ export default {
     this.columns = this.userSettings.columns;
     this.mode = this.userSettings.mode;
   },
+  destroyed() {
+    if (!this.interacted) {
+      this.updateUserSettings(this.prevSettings);
+    }
+  },
   methods: {
     ...mapActions('userInfo', ['updateUserSettings']),
     cancelChanges() {
-      this.updateUserSettings(this.prevSettings);
       this.$emit('remove-modal')
     },
     acceptChanges(boolean) {
@@ -48,8 +53,12 @@ export default {
         columns: this.columns,
         mode: this.mode
       }
+
       this.updateUserSettings(data)
-      if (boolean) this.$emit('remove-modal')
+      if (boolean) {
+        this.interacted = true;
+        this.$emit('remove-modal')
+      }
     },
   }
 }
