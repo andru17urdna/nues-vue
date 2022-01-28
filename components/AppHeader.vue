@@ -54,7 +54,7 @@ export default {
 <style lang='scss' scoped>
 
     .AppHeader_container-header{
-        background: chocolate;
+        background: #d2691e;
         height: 7rem;
         padding: 15px;
         display: grid;

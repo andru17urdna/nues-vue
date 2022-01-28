@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "run-all": "concurrently --names 'Backend,Frontend' 'yarn server' 'yarn dev'",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
@@ -29,6 +28,7 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
+    "@nuxtjs/vuetify": "^1.12.3",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.5.1",
     "sass": "^1.47.0",
