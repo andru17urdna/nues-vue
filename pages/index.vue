@@ -1,7 +1,9 @@
 <template>
 <div class="index_container-div">
-  <TopHeadlines />
-  <MainArticles />
+  <TopHeadlinesCopy />
+  <!-- <TopHeadlines /> -->
+  <MainArticlesCopy />
+  <!-- <MainArticles /> -->
 </div>
 </template>
 
@@ -9,16 +11,13 @@
 <script>
 
 export default {
-  name: 'IndexPage',
-  data() {
-    return {
+    name: "IndexPage",
+    data() {
+        return {};
+    },
+    methods: {},
+    created() {
 
-    }
-  },
-  methods: {
-  },
-  created() {
-
-  }
+    },
 }
 </script>

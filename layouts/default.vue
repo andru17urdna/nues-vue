@@ -67,25 +67,27 @@
         <v-icon>mdi-heart</v-icon>
       </v-btn>
 
-      <v-btn icon>
+      <v-btn icon
+        @click="displayModal = true"
+      >
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
 
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab>Tab 1</v-tab>
-          <v-tab>Tab 2</v-tab>
-          <v-tab>Tab 3</v-tab>
+          <v-tab>Favorited</v-tab>
+          <v-tab>Fox</v-tab>
+          <v-tab>CBS</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
 
     <v-main>
       <!-- <DevInfoDisplay :user="userInfo" /> -->
-    <!-- <Modal v-if="displayModal"
+    <Modal v-if="displayModal"
            :type="modalType"
-               v-on:remove-modal="closeModal" />
-    <AppHeader v-on:user-login="signIn"
+           v-on:remove-modal="closeModal" />
+    <!-- <AppHeader v-on:user-login="signIn"
                v-on:user-logout="logout"
                v-on:show-settings="showSettingsModal"
                v-on:show-queue="showQueueModal"/> -->
