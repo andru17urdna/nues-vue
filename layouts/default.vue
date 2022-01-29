@@ -91,7 +91,7 @@
                v-on:user-logout="logout"
                v-on:show-settings="showSettingsModal"
                v-on:show-queue="showQueueModal"/> -->
-    <Nuxt class='pa-6'/>
+    <Nuxt />
     </v-main>
   </v-app>
 </template>

@@ -13,21 +13,12 @@
           nuxt
           :to="'article/' + article.id"
         >
-          <v-sheet
-            height="100%"
-            tile
-            color="blue"
-          >
-            <v-row
-              class="fill-height"
-              align="center"
-              justify="center"
-            >
-              <div>
-                <p>{{ article.title }}</p>
-              </div>
-            </v-row>
-          </v-sheet>
+        <div>
+            <h1>{{article.title}}</h1>
+        </div>
+
+
+
         </v-carousel-item>
       </v-carousel>
   </div>

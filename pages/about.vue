@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='pa-6'>
         <h1>ABOUT PAGE</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu felis dolor. In eleifend elementum velit, vitae mattis nisl vulputate eget. Nullam vel cursus ante, quis placerat lacus. Phasellus vestibulum ullamcorper neque sit amet suscipit. Maecenas porttitor vitae nulla eu ultricies. Fusce vulputate tincidunt volutpat. Vestibulum ac lectus eget ante hendrerit tempus quis eget ligula. Praesent dictum quam in velit fringilla pellentesque. Cras convallis sodales leo, vitae tincidunt sem accumsan a. Nunc elementum faucibus justo, et consequat dolor placerat et. Morbi non dui eget tellus laoreet dignissim. Suspendisse pellentesque efficitur mi a laoreet. Duis ac pulvinar diam, non pulvinar augue. Nunc varius porttitor ante, nec gravida leo consectetur eget. Nam quis neque eu ex vulputate dictum. Aenean non justo ac mauris posuere varius.</p>
 

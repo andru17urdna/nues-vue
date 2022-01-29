@@ -1,5 +1,5 @@
 <template>
-<div class="index_container-div">
+<div>
   <TopHeadlinesCopy />
   <!-- <TopHeadlines /> -->
   <MainArticlesCopy />

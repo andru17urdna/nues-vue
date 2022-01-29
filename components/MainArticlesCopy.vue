@@ -2,7 +2,7 @@
 <template>
   <v-container class="grey lighten-5">
     <h1>Toady</h1>
-    <v-row no-gutters>
+    <v-row>
       <v-col
         v-for="article in mainArticles"
         :key=article.id
@@ -15,7 +15,7 @@
           tile
         >
 
-<Article :singlearticle="article" :location="'MainArticles'" />
+          <ArticleCopy :singlearticle="article" :location="'MainArticles'" />
         </v-card>
       </v-col>
     </v-row>
