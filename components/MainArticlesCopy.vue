@@ -1,21 +1,26 @@
-
 <template>
-  <v-container class="grey lighten-5">
-    <h1>Toady</h1>
+  <v-container class="grey mt-10">
+    <h1>Today's Articles:</h1>
     <v-row>
       <v-col
         v-for="article in mainArticles"
         :key=article.id
         cols="12"
-        sm="4"
+        sm="12"
+        md="6"
+        lg="4"
       >
         <v-card
+          tile
           class="pa-2"
           outlined
-          tile
         >
 
-          <ArticleCopy :singlearticle="article" :location="'MainArticles'" />
+          <ArticleCopy
+              :singlearticle="article"
+              :location="'MainArticles'" />
+
+
         </v-card>
       </v-col>
     </v-row>

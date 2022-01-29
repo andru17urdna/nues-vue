@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "DevInfoDisplay",
@@ -62,13 +62,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.DevInfoDisplay_container-div{
-    width: 50rem;
-    background: rgba(128, 128, 128);
-    position: fixed;
-    margin: auto 50vw 0;
-    transform: translatex(-50%);
-    color: white;
-}
 
 </style>

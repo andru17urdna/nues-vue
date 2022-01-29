@@ -1,7 +1,7 @@
 
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       app
       v-model="drawer"
       temporary
@@ -34,14 +34,14 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
 
     <v-app-bar
       app
       color="#d2691e"
-      dark
       shrink-on-scroll
       prominent
+      dark
       src="https://picsum.photos/1920/1080?random"
       fade-img-on-scroll
       scroll-target
@@ -53,17 +53,28 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <!-- <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon> -->
 
       <v-app-bar-title>Nues-Vue</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
+      <v-btn icon
+      :to="'/'"
+      >
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+
+      <v-btn icon
+      :to="'/search'"
+      >
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
 
-      <v-btn icon>
+      <v-btn icon
+      :to="'/about'"
+      >
         <v-icon>mdi-heart</v-icon>
       </v-btn>
 
@@ -99,60 +110,54 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import TopHeadlinesCopy from "~/components/TopHeadlinesCopy.vue";
 
 export default {
-  data:() =>(
-    {
-  // Vuetify
-      drawer: null,
-      items: [
-          { title: 'Home', icon: 'mdi-home', to: '/' },
-          { title: 'Search', icon: 'mdi-magnify', to: '/search' },
-          { title: 'About', icon: 'mdi-magnify', to: '/about' },
-      ],
-  // Other
-      displayModal: false,
-      modalType: 'user-Settings',
-
-    }
-  ),
-  computed: {
-    ...mapGetters('userInfo', ['userInfo']),
-  },
-  created(){
-
-  },
-  watch: {
-    $route (to, from) {
-      this.iterator = 0;
-    }
-  },
-  methods: {
-    ...mapActions('userInfo', ['fetchUserInfo', 'removeUserInfo']),
-    ...mapActions('articlesData',['fetchDefaultArticles','fetchUserArticles']),
-    async signIn() {
-      await this.fetchUserInfo();
-      this.fetchUserArticles(this.userInfo.favorited);
+    data: () => ({
+        // Vuetify
+        drawer: null,
+        items: [
+            { title: "Home", icon: "mdi-home", to: "/" },
+            { title: "Search", icon: "mdi-magnify", to: "/search" },
+            { title: "About", icon: "mdi-magnify", to: "/about" },
+        ],
+        // Other
+        displayModal: false,
+        modalType: "user-Settings",
+    }),
+    computed: {
+        ...mapGetters("userInfo", ["userInfo"]),
     },
-    logout(){
-      this.removeUserInfo();
-      this.fetchDefaultArticles();
+    created() {
     },
-    showSettingsModal() {
-      this.modalType= 'user-Settings';
-      this.displayModal = true;
+    watch: {
+        $route(to, from) {
+            this.iterator = 0;
+        }
     },
-    closeModal() {
-      this.displayModal = false;
+    methods: {
+        ...mapActions("userInfo", ["fetchUserInfo", "removeUserInfo"]),
+        ...mapActions("articlesData", ["fetchDefaultArticles", "fetchUserArticles"]),
+        async signIn() {
+            await this.fetchUserInfo();
+            this.fetchUserArticles(this.userInfo.favorited);
+        },
+        logout() {
+            this.removeUserInfo();
+            this.fetchDefaultArticles();
+        },
+        showSettingsModal() {
+            this.modalType = "user-Settings";
+            this.displayModal = true;
+        },
+        closeModal() {
+            this.displayModal = false;
+        },
+        showQueueModal() {
+            this.modalType = "user-Queue";
+            this.displayModal = true;
+        }
     },
-    showQueueModal() {
-      this.modalType = 'user-Queue';
-      this.displayModal = true;
-    }
-  }
+    components: { TopHeadlinesCopy }
 }
 </script>
-
-<style>
-
-</style>

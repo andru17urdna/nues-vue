@@ -46,20 +46,5 @@ export default {
 </script>
 
 <style lang="scss">
-    .Top-Headline_conatiner-div{
-        padding: 10px;
-        display: grid;
-        grid-template-rows: repeat(5, 1fr);
-        grid-template-columns: repeat(5, 1fr);
-        border-bottom: black solid 3px;
 
-        a{
-            color:red
-        }
-
-        .Top-Headline_header-h1{
-            grid-row: 1/-1;
-            margin-right: 10px;
-        }
-    }
 </style>

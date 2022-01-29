@@ -1,10 +1,8 @@
 <template>
-<div>
+<v-container class="blue">
   <TopHeadlinesCopy />
-  <!-- <TopHeadlines /> -->
   <MainArticlesCopy />
-  <!-- <MainArticles /> -->
-</div>
+</v-container>
 </template>
 
 

@@ -21,7 +21,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .WrapperNuxtLink_container-nuxtlink{
-            text-decoration: none;
-    }
+
 </style>

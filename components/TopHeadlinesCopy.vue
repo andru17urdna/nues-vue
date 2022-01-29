@@ -1,8 +1,9 @@
 <template>
-  <div>
-      <h2>Today's Top-Headlines</h2>
+  <v-container class="red">
+      <h3>Today's Top-Headlines:</h3>
+
       <v-carousel
-      class="pa-6"
+        class="green"
         v-model="model"
         cycle
         continuous
@@ -13,15 +14,12 @@
           nuxt
           :to="'article/' + article.id"
         >
-        <div>
-            <h1>{{article.title}}</h1>
-        </div>
 
 
 
         </v-carousel-item>
       </v-carousel>
-  </div>
+  </v-container>
 </template>
 
 
@@ -30,13 +28,6 @@
     data: () => ({
       model: 0,
       headlines: [],
-      colors: [
-        'primary',
-        'secondary',
-        'yellow darken-2',
-        'red',
-        'orange',
-      ],
     }),
 
     async created(){
@@ -45,3 +36,12 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .sstuff{
+    height: 200px;
+  }
+  .carousel{
+    color: red;
+  }
+</style>

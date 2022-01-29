@@ -1,7 +1,7 @@
 <template>
   <v-card
     :loading="loading"
-    class="mx-auto my-12"
+    class="mx-auto my-6"
 
   >
     <template slot="progress">

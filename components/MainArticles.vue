@@ -1,6 +1,6 @@
 <template>
-  <div v-if="mainArticles" :style="{gridTemplateColumns: `repeat(${this.userSettings.columns}, 1fr)`}" class="MainArticle_container-div">
-    <h2 class="MainArticle_header-h2">Todays Articles:</h2>
+  <div>
+    <h2>Todays Articles:</h2>
 
     <WrapperNuxtLink v-for="article in mainArticles" :key=article.id :url="article.id">
         <Article :singlearticle="article" :location="'MainArticles'" />

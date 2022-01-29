@@ -28,28 +28,3 @@ export default {
   }
 }
 </script>
-
-<style lang='scss' scoped>
-
-$width-calc: calc(150px + 100vw - 1000px);
-
-._id-Article_conatiner-div{
-    padding: 1rem;
-    border: 3px solid black;
-    margin: 1rem 10rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    h2,p{
-      text-align: center;
-      width: calc(150px + 100vw - 1000px);
-    }
-
-    img{
-      width: $width-calc;
-    }
-}
-
-
-</style>
