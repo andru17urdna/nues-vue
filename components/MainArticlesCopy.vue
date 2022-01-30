@@ -1,30 +1,28 @@
 <template>
-  <v-container class="grey mt-10">
-    <h1>Today's Articles:</h1>
-    <v-row>
-      <v-col
-        v-for="article in mainArticles"
-        :key=article.id
+  <div>
+      <h1 class="text-center">Today's Articles:</h1>
+    <v-container>
+      <v-row>
+        <v-col
         cols="12"
-        sm="12"
-        md="6"
-        lg="4"
-      >
-        <v-card
-          tile
-          class="pa-2"
-          outlined
+          lg="4"
+          md="6"
+          v-for="article in mainArticles"
+          :key=article.id
         >
-
-          <ArticleCopy
-              :singlearticle="article"
-              :location="'MainArticles'" />
-
-
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+          <v-card
+            tile
+            class="pa-2"
+            outlined
+          >
+            <ArticleCopy
+                :singlearticle="article"
+                :location="'MainArticles'" />
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 

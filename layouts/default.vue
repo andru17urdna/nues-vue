@@ -43,46 +43,53 @@
       prominent
       dark
       src="https://picsum.photos/1920/1080?random"
-      fade-img-on-scroll
       scroll-target
     >
-      <template v-slot:img="{ props }">
-        <v-img
-          v-bind="props"
-          gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
-        ></v-img>
-      </template>
+      <v-app-bar-title>Home</v-app-bar-title>
+      <template >
 
-
-      <!-- <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon> -->
-
-      <v-app-bar-title>Nues-Vue</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon
-      :to="'/'"
-      >
-        <v-icon>mdi-home</v-icon>
-      </v-btn>
+        <h1>NUES VUE</h1>
 
-      <v-btn icon
-      :to="'/search'"
-      >
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+      </template>
+      <!-- <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon> -->
 
-      <v-btn icon
-      :to="'/about'"
-      >
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
+      <v-spacer></v-spacer>
 
-      <v-btn icon
-        @click="displayModal = true"
-      >
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+
+      <div>
+        <div>
+          <v-btn icon
+          @click="signIn"
+          >
+            <v-icon>mdi-account</v-icon>
+          </v-btn>
+          <v-btn icon
+          :to="'/'"
+          >
+            <v-icon>mdi-home</v-icon>
+          </v-btn>
+          <v-btn icon
+          :to="'/search'"
+          >
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+          <v-btn icon
+          :to="'/about'"
+          >
+            <v-icon>mdi-heart</v-icon>
+          </v-btn>
+          <v-btn icon
+            @click="displayModal = true"
+          >
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </div>
+
+        <p class="pt-3 d-flex flex-row-reverse">{{userInfo.username}}</p>
+      </div>
 
       <template v-slot:extension>
         <v-tabs align-with-title>
@@ -93,7 +100,7 @@
       </template>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="green">
       <!-- <DevInfoDisplay :user="userInfo" /> -->
     <Modal v-if="displayModal"
            :type="modalType"

@@ -1,13 +1,24 @@
 <template>
-<div >
-  <v-container class="px-15">
-    <TopHeadlinesCopy />
 
-<v-divider dark ></v-divider>
+  <v-container class="red">
 
-    <MainArticlesCopy />
+    <v-row>
+
+        <v-col cols="12"
+                md="9">
+
+          <MainArticlesCopy class="blue" />
+        </v-col>
+
+        <v-col
+         cols="12"
+                md="3">
+          <TopHeadlinesCopy  />
+        </v-col>
+
+    </v-row>
   </v-container>
-</div>
+
 </template>
 
 
@@ -16,10 +27,11 @@
 export default {
     name: "IndexPage",
     data() {
-        return {};
+        return {
+
+        };
     },
-    methods: {},
-    created() {
+    methods: {
 
     },
 }

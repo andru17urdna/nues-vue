@@ -1,44 +1,28 @@
 <template>
-  <v-container class="transparent pl-10 pr-10">
-      <h3>Today's Top-Headlines:</h3>
-
-      <v-carousel
-        class="transparent"
-        v-model="model"
-        cycle
-        continuous
-        hide-delimiters
-        progress
-        progress-color="orange"
-        height="100"
-        show-arrows-on-hover
-       >
-        <v-carousel-item
-          v-for="article in headlines"
-          :key="article.id"
-          nuxt
-          :to="'article/' + article.id"
-        >
-            <v-sheet
-              :color="'transparent'"
-              height="100%"
-              tile
-            >
-              <v-row
-                class="fill-height"
-                align="center"
-                justify="center"
+    <div class="dontmove">
+      <h2 class="text-center">Today's Top-Headlines</h2>
+      <v-container class="blue over">
+          <v-list
+           three-line>
+              <v-list-item
+                v-for="article in headlines"
+                :key="article.id"
               >
-                <div class="transparent py-0 mx-10">
-                  <h3>{{ article.title }}</h3>
-                </div>
-              </v-row>
-            </v-sheet>
-
-
-        </v-carousel-item>
-      </v-carousel>
-  </v-container>
+                <v-list-item-avatar
+                  rounded="'false'"
+                >
+                  <v-img :src="article.urlToImage"></v-img>
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title v-html="article.title"></v-list-item-title>
+                    <v-divider></v-divider>
+                  <v-list-item-subtitle v-html="article.description"></v-list-item-subtitle>
+                  <v-list-item-subtitle v-text="article.source.name"></v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+        </v-list>
+      </v-container>
+    </div>
 </template>
 
 
@@ -56,11 +40,15 @@
   }
 </script>
 
+
 <style lang="scss">
-  .sstuff{
-    height: 200px;
+  .dontmove{
+    position: sticky;
+    top: 15rem;
   }
-  .carousel{
-    color: red;
+
+  .over{
+    height: 40rem;
+    overflow-y: scroll;
   }
 </style>

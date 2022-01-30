@@ -1,21 +1,21 @@
 <template>
-  <div class="Search_container-div">
-    <div class="Search_userInfo-div">
+  <v-container class="blue">
+    <div class="">
           <h1>SEARCH</h1>
               <h3 v-if="userInfo.session"> Your current Favorite Tags:</h3>
-          <div class="inline">
-              <p class="underline Search_userInfo-p"
+          <div class="">
+              <p class=""
                     @click.stop="previousSearch(tag)"
                      v-for="(tag, index) in userInfo.favorited"
                     :key=index >{{ tag }}
                     <button @click="deleteUserFavorite(tag)">X</button></p>
-              <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
+              <p class="" v-if="errorMessage">{{ errorMessage }}</p>
           </div>
 
           <h3 v-if="userInfo.session">Most Recent Searches:</h3>
 
-              <div class="inline">
-                  <p class="underline Search_userInfo-p" @click="previousSearch(prevSearch)" v-for="prevSearch in userInfo.recent_searches" :key="prevSearch">{{prevSearch}}</p>
+              <div class="">
+                  <p class="" @click="previousSearch(prevSearch)" v-for="prevSearch in userInfo.recent_searches" :key="prevSearch">{{prevSearch}}</p>
               </div>
 
         <form class="Search_Form-form" @submit.prevent="searchNews">
@@ -28,7 +28,7 @@
     <div class="Search_articleContainer-div">
         <Article v-for="article in searchResults" :key=article.id :singlearticle="article" :location="'Search'"/>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>
