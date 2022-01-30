@@ -1,8 +1,13 @@
 <template>
-<v-container class="blue">
-  <TopHeadlinesCopy />
-  <MainArticlesCopy />
-</v-container>
+<div >
+  <v-container class="px-15">
+    <TopHeadlinesCopy />
+
+<v-divider dark ></v-divider>
+
+    <MainArticlesCopy />
+  </v-container>
+</div>
 </template>
 
 

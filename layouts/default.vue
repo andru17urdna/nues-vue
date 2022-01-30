@@ -110,7 +110,6 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import TopHeadlinesCopy from "~/components/TopHeadlinesCopy.vue";
 
 export default {
     data: () => ({
@@ -158,6 +157,5 @@ export default {
             this.displayModal = true;
         }
     },
-    components: { TopHeadlinesCopy }
 }
 </script>
