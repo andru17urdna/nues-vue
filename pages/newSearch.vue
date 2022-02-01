@@ -1,5 +1,6 @@
 <template>
-  <SearchForm />
+  <!-- <SearchForm /> -->
+  <ExpandTransition />
 </template>
 
 <script>

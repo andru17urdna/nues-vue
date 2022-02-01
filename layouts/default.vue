@@ -1,51 +1,16 @@
 
 <template>
   <v-app id="inspire">
-    <!-- <v-navigation-drawer
-      app
-      v-model="drawer"
-      temporary
-    >
-      <v-list-item>
-        <v-list-item-avatar>
-          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-        </v-list-item-avatar>
 
-        <v-list-item-content>
-          <v-list-item-title>{{userInfo.username}}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
-
-      <v-list dense>
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          :to="item.to"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer> -->
+  <!--   -->
 
     <v-app-bar
       app
-      color="#d2691e"
-      shrink-on-scroll
-      prominent
       dark
+      height="120"
+      color="#d2691e"
       src="https://picsum.photos/1920/1080?random"
-      scroll-target
     >
-      <v-app-bar-title>Home</v-app-bar-title>
       <template >
 
 

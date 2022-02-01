@@ -1,15 +1,18 @@
 <template>
     <div class="dontmove">
       <h2 class="text-center">Today's Top-Headlines</h2>
-      <v-container class="blue over">
+      <v-container
+       class="blue over">
           <v-list
            three-line>
               <v-list-item
+                class="bordered"
+              :outlined="true"
                 v-for="article in headlines"
                 :key="article.id"
               >
                 <v-list-item-avatar
-                  rounded="'false'"
+                  :rounded="true"
                 >
                   <v-img :src="article.urlToImage"></v-img>
                 </v-list-item-avatar>
@@ -50,5 +53,9 @@
   .over{
     height: 40rem;
     overflow-y: scroll;
+  }
+
+  .bordered{
+    border: 1px solid black;
   }
 </style>

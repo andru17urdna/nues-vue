@@ -12,8 +12,9 @@
         >
           <v-card
             tile
-            class="pa-2"
+            class="py-5 px-2"
             outlined
+            height="100%"
           >
             <ArticleCopy
                 :singlearticle="article"
