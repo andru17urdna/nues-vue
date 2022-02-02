@@ -14,6 +14,7 @@
             tile
             class="py-5 px-2"
             outlined
+            color="transparent"
             height="100%"
           >
             <ArticleCopy

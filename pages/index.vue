@@ -1,13 +1,13 @@
 <template>
 
-  <v-container class="red">
+  <v-container class="blue-grey darken-1">
 
     <v-row>
 
         <v-col cols="12"
                 md="9">
 
-          <MainArticlesCopy class="blue" />
+          <MainArticlesCopy class="amber darken-1" />
         </v-col>
 
         <v-col

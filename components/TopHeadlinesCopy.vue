@@ -2,7 +2,7 @@
     <div class="dontmove">
       <h2 class="text-center">Today's Top-Headlines</h2>
       <v-container
-       class="blue over">
+       class="amber darken-1 over">
         <v-list flat>
           <v-list-item-group
             color="primary"

@@ -62,7 +62,7 @@
       </template> -->
     </v-app-bar>
 
-    <v-main class="green">
+    <v-main class="orange lighten-4">
       <!-- <DevInfoDisplay :user="userInfo" /> -->
     <Modal v-if="displayModal"
            :type="modalType"
