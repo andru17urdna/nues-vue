@@ -20,15 +20,11 @@
         <p class="white-font">{{ singlearticle.source.name || 'Anonymous'}}</p>
       </div>
 
-      <v-btn
-          :loading="btnloading"
-          :disabled="btndisabled"
-          :class="elevateLvl == 15 ? 'hovering-on': 'unhovered'"
-          text
-          @click="loaderAndDisable(singlearticle)"
-        >
-          {{ btndisabled ? 'In Queue':'Add to Queue'}}
-        </v-btn>
+      <Btn-LoadDisableBtn
+       :textT="'Add to queue'" :textF="'In queue'"
+        v-on:click-stop="updateUserQueue(singlearticle)"
+       />
+
     </div>
 
     <v-spacer class="py-2"></v-spacer>

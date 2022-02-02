@@ -14,15 +14,12 @@
       <template >
 
 
-      <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
 
-        <h1>NUES VUE</h1>
+          <h1>NUES VUE</h1>
 
       </template>
-      <!-- <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon> -->
-
-      <v-spacer></v-spacer>
-
+        <v-spacer></v-spacer>
 
       <div>
         <div>
@@ -56,13 +53,13 @@
         <p class="pt-3 d-flex flex-row-reverse">{{userInfo.username}}</p>
       </div>
 
-      <template v-slot:extension>
+      <!-- <template v-slot:extension>
         <v-tabs align-with-title>
           <v-tab>Favorited</v-tab>
           <v-tab>Fox</v-tab>
           <v-tab>CBS</v-tab>
         </v-tabs>
-      </template>
+      </template> -->
     </v-app-bar>
 
     <v-main class="green">

@@ -3,26 +3,13 @@
       <h2 class="text-center">Today's Top-Headlines</h2>
       <v-container
        class="blue over">
-          <v-list
-           three-line>
-              <v-list-item
-                class="bordered"
-              :outlined="true"
-                v-for="article in headlines"
-                :key="article.id"
-              >
-                <v-list-item-avatar
-                  :rounded="true"
-                >
-                  <v-img :src="article.urlToImage"></v-img>
-                </v-list-item-avatar>
-                <v-list-item-content>
-                  <v-list-item-title v-html="article.title"></v-list-item-title>
-                    <v-divider></v-divider>
-                  <v-list-item-subtitle v-html="article.description"></v-list-item-subtitle>
-                  <v-list-item-subtitle v-text="article.source.name"></v-list-item-subtitle>
-                </v-list-item-content>
-              </v-list-item>
+        <v-list flat>
+          <v-list-item-group
+            color="primary"
+          >
+            <TopHeadlinesArticle v-for="article in headlines" :article="article"
+              :key="article.id" />
+          </v-list-item-group>
         </v-list>
       </v-container>
     </div>
@@ -30,17 +17,18 @@
 
 
 <script>
+
   export default {
     data: () => ({
-      model: 0,
-      headlines: [],
+        model: 0,
+        headlines: [],
     }),
-
-    async created(){
+    methods: {},
+    async created() {
         const res = await this.$axios.get(`/api/news/top-headlines`);
-        this.headlines = res.data.articles
-    }
-  }
+        this.headlines = res.data.articles;
+    },
+}
 </script>
 
 
